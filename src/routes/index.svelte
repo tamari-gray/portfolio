@@ -1,18 +1,18 @@
 <style>
   .hero {
-		height: 80vh;
+    height: 80vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-		justify-content: center;
-		align-content: center;
+    justify-content: center;
+    align-content: center;
   }
 
   h1 {
     font-size: 2.8em;
     font-weight: 700;
     margin: 0 0 0.5em 0;
-    text-align: center
+    text-align: center;
   }
 
   h3 {
@@ -28,8 +28,8 @@
       font-size: 4em;
     }
     h3 {
-    font-size: 1.6em;
-  }
+      font-size: 1.6em;
+    }
   }
 </style>
 
