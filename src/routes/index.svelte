@@ -9,8 +9,14 @@
   }
 
   h1 {
+    font-size: 2.8em;
     font-weight: 700;
     margin: 0 0 0.5em 0;
+    text-align: center
+  }
+
+  h3 {
+    font-size: 1.2em;
   }
 
   span {
@@ -21,6 +27,9 @@
     h1 {
       font-size: 4em;
     }
+    h3 {
+    font-size: 1.6em;
+  }
   }
 </style>
 
@@ -34,6 +43,6 @@
     Im a
     <span>full stack developer</span>
   </h1>
-  <h3>- making cool stuff is fun :)</h3>
+  <h3>&& making cool stuff is fun :)</h3>
 
 </div>
