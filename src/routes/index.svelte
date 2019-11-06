@@ -43,6 +43,6 @@
     Im a
     <span>full stack developer</span>
   </h1>
-  <h3>&& making cool stuff is fun :)</h3>
+  <h3>=> making cool stuff is fun :)</h3>
 
 </div>
