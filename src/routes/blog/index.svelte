@@ -10,6 +10,7 @@
 
 <script>
   export let posts;
+  
 </script>
 
 <style>
@@ -59,9 +60,7 @@
   <div class="left">
     <h1>Cleaner homes website</h1>
     <img src="cleanerHomes.png" alt="cleaner homes website design" />
-    <div>
-      description.
-    </div>
+    <div>description.</div>
     <div class="technologies">technologies</div>
   </div>
 
