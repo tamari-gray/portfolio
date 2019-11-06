@@ -1,5 +1,9 @@
 <script>
   export let segment;
+  import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
+	import MdEmail from "svelte-icons/md/MdEmail.svelte";
+	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
+	import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
 </script>
 
 <style>
@@ -26,10 +30,6 @@
     float: left;
   }
 
-  .icons {
-		float: right;
-  }
-
   .selected {
     position: relative;
     display: inline-block;
@@ -50,6 +50,17 @@
     padding: 1em 0.5em;
     display: block;
   }
+
+  .icons {
+    float: right;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+		padding: 1em 0.5em 0.5em 0.5em
+  }
+
 </style>
 
 <nav>
@@ -72,13 +83,22 @@
     <li>
       <a class={segment === 'about' ? 'selected' : ''} href="about">about</a>
     </li>
+		<li>
+      <a class={segment === 'resume' ? 'selected' : ''} href="resume">resume</a>
+    </li>
+		<li>
+      <a class={segment === 'contact' ? 'selected' : ''} href="contact">contact</a>
+    </li>
 
     <li class="icons">
-        <a href=".">github</a>
+      <a class="icon" href="https://github.com/tamari-gray">
+        <DiGithubBadge />
+      </a>
     </li>
-		<li class="icons">
-        <a href=".">gmail</a>
+    <li class="icons">
+      <a class="icon" href="https://www.linkedin.com/in/tamari-gray-44128618a/">
+        <FaLinkedin />
+      </a>
     </li>
-
   </ul>
 </nav>
