@@ -34,7 +34,7 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       document
         .querySelector(".svelte-1uhnsl8")
-        .setAttribute("style", "padding: 0;");
+        // .setAttribute("style", "padding: 0;");
       renderer.domElement.setAttribute("style", "width: 100vw; height: 100vh");
       document.querySelector(".scene").appendChild(renderer.domElement);
     }
