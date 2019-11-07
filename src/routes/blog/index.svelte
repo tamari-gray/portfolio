@@ -10,7 +10,6 @@
 
 <script>
   export let posts;
-  
 </script>
 
 <style>
@@ -23,44 +22,51 @@
     font-weight: 700;
     margin: 0 0 0.5em 0;
   }
-  .main {
-    height: 80vh;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
   img {
     width: 350px;
     height: 200px;
-  }
-
-  .technologies {
-    flex-grow: 2;
-  }
-  .right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
   }
 </style>
 
 <svelte:head>
   <title>Blog</title>
 </svelte:head>
-
-<div class="main">
-
+<div class="container">
+  <div class="columns">
+    <!-- title -->
+    <div class="column col-12">
+      <div class="columns">
+        <div class="column col-8">
+          <h1 style="margin-bottom:0.25em">Cleaner Homes website</h1>
+          <h5>Design & development</h5>
+        </div>
+        <div class="column col-2 col-ml-auto">next project -></div>
+      </div>
+    </div>
+    <!-- left side -->
+    <div class="column col-6" style="border: thin solid red">
+      <div class="columns">
+        <div class="column col-12">
+          <img src="cleanerHomes.png" alt="cleaner homes website design" />
+        </div>
+        <div class="column col-12">col-12</div>
+      </div>
+    </div>
+    <!-- right side -->
+    <div class="column col-6 " style="border: thin solid red">col-6</div>
+  </div>
+</div>
+<!-- <div class="main">
   <div class="left">
-    <h1>Cleaner homes website</h1>
+    <div>
+      <h1 style="margin-bottom:0.25em">Cleaner Homes website</h1>
+      <h3>Design & development</h3>
+    </div>
     <img src="cleanerHomes.png" alt="cleaner homes website design" />
-    <div>description.</div>
+    <div class="buttons">
+      <button>view code</button>
+      <button>live version</button>
+    </div>
     <div class="technologies">technologies</div>
   </div>
 
@@ -71,7 +77,7 @@
     <div>notable features</div>
   </div>
 
-</div>
+</div> -->
 
 <!-- <ul>
   {#each posts as post} -->
