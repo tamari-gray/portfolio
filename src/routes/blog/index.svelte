@@ -53,13 +53,13 @@
         <div class="column col-2 col-mx-auto hide-sm next-project">
           <button class="btn btn-primary btn-lg">
             <i class="icon icon-arrow-right" />
-             next project >
+            next project
           </button>
         </div>
       </div>
     </div>
     <!-- left side -->
-    <div class="column col-sm-12" style="border: thin solid red">
+    <div class="column col-sm-12">
       <div class="columns">
         <img
           class="column col-10 col-mx-auto"
@@ -75,31 +75,36 @@
       </div>
     </div>
     <!-- right side -->
-    <div class="column col-sm-12 " style="border: thin solid red">col-6</div>
+    <div class="column col-sm-12 ">
+      <div class="accordion">
+        <input
+          type="checkbox"
+          id="accordion-1"
+          name="accordion-checkbox"
+          hidden />
+        <label class="accordion-header" for="accordion-1">
+          <i class="icon icon-arrow-right mr-1" />
+          yee
+        </label>
+        <div class="accordion-body">
+          <ul>
+            <li>yoo</li>
+            <li>yoo</li>
+            <li>yoo</li>
+            <li>yoo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<!-- <div class="main">
-  <div class="left">
-    <div>
-      <h1 style="margin-bottom:0.25em">Cleaner Homes website</h1>
-      <h3>Design & development</h3>
-    </div>
-    <img src="cleanerHomes.png" alt="cleaner homes website design" />
-    <div class="buttons">
-      <button>view code</button>
-      <button>live version</button>
-    </div>
-    <div class="technologies">technologies</div>
-  </div>
 
-  <div class="right">
+<!-- <div class="right">
     <div>my role</div>
     <div>problems</div>
     <div>solutions</div>
     <div>notable features</div>
-  </div>
-
-</div> -->
+  </div> -->
 
 <!-- <ul>
   {#each posts as post} -->
