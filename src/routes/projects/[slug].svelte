@@ -15,6 +15,15 @@
 
 <script>
   export let post;
+
+  let activeTab = "my role"
+
+  const tabs = [
+    { name: "my role", active: false },
+    { name: "tech", active: false },
+    { name: "learnings", active: false },
+    { name: "features", active: false }
+  ];
 </script>
 
 <style>
@@ -62,20 +71,21 @@
     </div>
     <!-- tabs-->
     <div class="column col-sm-11 col-10 col-mx-auto ">
+
       <ul class="tab tab-block">
-        <li class="tab-item active">
-          <a href="/projects/about">my role</a>
-        </li>
-        <li class="tab-item">
-          <a href="." class="">tech</a>
-        </li>
-        <li class="tab-item">
-          <a href=".">learnings</a>
-        </li>
-        <li class="tab-item">
-          <a href=".">features</a>
-        </li>
+        {#each tabs as tab}
+          <li class="tab-item" class:active="{activeTab === tab.name}" on:click="{() => activeTab = tab.name }">
+            <a href="/projects/about">{tab.name}</a>
+          </li>
+        {/each}
       </ul>
+
+    </div>
+
+    <!-- content -->
+    <div class="column col-sm-11 col-10 col-mx-auto ">
+      <p>content</p>
+
     </div>
   </div>
 </div>
