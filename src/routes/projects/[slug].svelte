@@ -15,17 +15,8 @@
 
 <script>
   export let post;
+  let activeTab = post.tabs[0]
 
-
-  const tabs = [
-    { name: "my role", content: "content fkjdsnfsdgnl" },
-    { name: "tech", content: "content fkjdsnfsdgnl" },
-    { name: "learnings", content: "content fkjdsnfsdgnl" },
-    { name: "features", content: "content fkjdsnfsdgnl" }
-  ];
-
-  let activeTab = tabs[0]
-  
 </script>
 
 <style>
@@ -52,7 +43,7 @@
   <div class="columns">
     <!-- title -->
     <div class="column col-12">
-      <h1 class="title" style="">Cleaner Homes website</h1>
+      <h1 class="title" style="">{post.title}</h1>
     </div>
     <!-- mockup -->
     <div class="column col-12" style="margin-bottom:5vh">
@@ -75,9 +66,9 @@
     <div class="column col-sm-11 col-10 col-mx-auto ">
 
       <ul class="tab tab-block">
-        {#each tabs as tab}
+        {#each post.tabs as tab}
           <li class="tab-item" class:active="{activeTab.name === tab.name}" on:click="{() => activeTab = tab }">
-            <a href="/projects/about">{tab.name}</a>
+            <a href="/projects/{post.slug}">{tab.name}</a>
           </li>
         {/each}
       </ul>
@@ -87,7 +78,6 @@
     <!-- content -->
     <div class="column col-sm-11 col-10 col-mx-auto ">
       <p>{activeTab.content} content</p>
-
     </div>
   </div>
 </div>

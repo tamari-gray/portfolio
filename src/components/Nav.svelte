@@ -8,10 +8,11 @@
 
 <style>
   nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;
     padding: 0 1em;
     height: 8.5vh;
+    position: relative;
+    z-index:100;
   }
 
   ul {
@@ -65,20 +66,18 @@
 </style>
 
 <nav>
-  <ul>
+  <ul style="text-decoration:none">
     <li>
       <a class={segment === undefined ? 'selected' : ''} href=".">
         Tamari Gray
       </a>
     </li>
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
     <li>
       <a
         rel="prefetch"
         class={segment === 'projects' ? 'selected' : ''}
         href="projects">
-        projects
+        my work
       </a>
     </li>
     <li>
@@ -87,10 +86,11 @@
 		<li>
       <a class={segment === 'resume' ? 'selected' : ''} href="resume">resume</a>
     </li>
-		<li>
-      <a class={segment === 'contact' ? 'selected' : ''} href="contact">contact</a>
+    <li class="icons">
+      <a class="icon" href="https://github.com/tamari-gray">
+        <DiGithubBadge />
+      </a>
     </li>
-
     <li class="icons">
       <a class="icon" href="https://github.com/tamari-gray">
         <DiGithubBadge />

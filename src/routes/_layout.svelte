@@ -9,7 +9,7 @@
   @import "./style/main.scss";
 </style>
 
-<!-- <Nav {segment} /> -->
+<Nav {segment} />
 
 <main>
   <slot />

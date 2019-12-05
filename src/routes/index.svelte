@@ -1,4 +1,16 @@
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch(`/projects.json`)
+      .then(r => r.json())
+      .then(posts => {
+        return { posts };
+      });
+  }
+</script>
+
 <script>
+  export let posts;
+
   import { onMount } from "svelte";
   import * as THREE from "three";
 
@@ -32,9 +44,8 @@
 
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
-      document
-        .querySelector(".svelte-1uhnsl8")
-        // .setAttribute("style", "padding: 0;");
+      document.querySelector(".svelte-1uhnsl8");
+      // .setAttribute("style", "padding: 0;");
       renderer.domElement.setAttribute("style", "width: 100vw; height: 100vh");
       document.querySelector(".scene").appendChild(renderer.domElement);
     }
@@ -68,7 +79,10 @@
     justify-content: center;
     align-content: center;
     height: 80vh;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
     color: antiquewhite;
   }
@@ -103,10 +117,22 @@
 </svelte:head>
 
 <div class="scene" />
+
 <div class="hero">
   <h1>
     Im a
     <span>full stack developer</span>
   </h1>
-  <h3>=> making cool stuff is fun :)</h3>
+  <button class="btn " href=".">view my work</button>
+  <button class="btn" href=".">
+    <span class="text-dark">contact me</span>
+  </button>
 </div>
+
+<ul>
+  {#each posts as post}
+    <li>
+      <a rel="prefetch" href="projects/{post.slug}">{post.title}</a>
+    </li>
+  {/each}
+</ul>
