@@ -53,13 +53,16 @@
     display: block;
   }
 
+
   .icons {
     float: right;
   }
 
   .icon {
-    width: 32px;
-    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height:32px;
 		padding: 1em 0.5em 0.5em 0.5em
   }
 
