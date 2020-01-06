@@ -92,6 +92,10 @@
     max-height: 100vh;
   }
 
+  .heading {
+    font-size: 2.4em;
+  }
+
   h1 {
     font-size: 2.8em;
     font-weight: 700;
@@ -123,7 +127,7 @@
 
 <div class="scene" />
 <div class="container">
-  <div class="columns">
+  <div class="columns" style="min-width:100vw">
     <!-- hero section -->
     <div class="column col-12 full-height">
       <div class="hero">
@@ -138,7 +142,17 @@
       </div>
     </div>
     <!-- projects section -->
-    <div class="column col-12 full-height">my work</div>
+    <div class="column col-12 full-height">
+      <div class="projects columns">
+        <div class="column col-12 columns">
+          <div class="column col-6 heading">my work</div>
+          <div class="column col-4 col-ml-auto">
+            arrow right
+          </div>
+        </div>
+        <div class="column col-12">project component</div>
+      </div>
+    </div>
     <div class="column col-12 about">about me section</div>
   </div>
 </div>
