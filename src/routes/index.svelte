@@ -87,6 +87,11 @@
     color: antiquewhite;
   }
 
+  .full-height {
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+
   h1 {
     font-size: 2.8em;
     font-weight: 700;
@@ -117,17 +122,30 @@
 </svelte:head>
 
 <div class="scene" />
-
-<div class="hero">
-  <h1>
-    Im a
-    <span>full stack developer</span>
-  </h1>
-  <button class="btn " href=".">view my work</button>
-  <button class="btn" href=".">
-    <span class="text-dark">contact me</span>
-  </button>
+<div class="container">
+  <div class="columns">
+    <!-- hero section -->
+    <div class="column col-12 full-height">
+      <div class="hero">
+        <h1>
+          Im a
+          <span>full stack developer</span>
+        </h1>
+        <button class="btn " href=".">view my work</button>
+        <button class="btn" href=".">
+          <span class="text-dark">contact me</span>
+        </button>
+      </div>
+    </div>
+    <!-- projects section -->
+    <div class="column col-12 full-height">my work</div>
+    <div class="column col-12 about">about me section</div>
+  </div>
 </div>
+
+<!-- 
+
+
 
 <ul>
   {#each posts as post}
@@ -135,4 +153,4 @@
       <a rel="prefetch" href="projects/{post.slug}">{post.title}</a>
     </li>
   {/each}
-</ul>
+</ul> -->
