@@ -11,6 +11,11 @@
 <script>
   export let posts;
 
+  import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
+  import MdEmail from "svelte-icons/md/MdEmail.svelte";
+	import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte'
+
+
   import { onMount } from "svelte";
   import * as THREE from "three";
 
@@ -103,8 +108,12 @@
     text-align: center;
   }
 
-  h3 {
-    font-size: 1.2em;
+  .icon:first-child {
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height:32px;
+		padding: 1em 0.5em 0.5em 0.5em
   }
 
   span {
@@ -115,8 +124,8 @@
     h1 {
       font-size: 4em;
     }
-    h3 {
-      font-size: 1.6em;
+    .projects {
+      margin-top:5vh
     }
   }
 </style>
@@ -129,7 +138,7 @@
 <div class="container">
   <div class="columns" style="min-width:100vw">
     <!-- hero section -->
-    <div class="column col-12 full-height">
+    <div class="column col-12" style="height:91.5vh">
       <div class="hero">
         <h1>
           Im a
@@ -143,11 +152,19 @@
     </div>
     <!-- projects section -->
     <div class="column col-12 full-height">
-      <div class="projects columns">
-        <div class="column col-12 columns">
-          <div class="column col-6 heading">my work</div>
-          <div class="column col-4 col-ml-auto">
-            arrow right
+      <div class="container">
+        <div class="projects columns">
+          <div class="column col-12 columns">
+            <div class="column col-sm-6 col-4 heading" style=" text-align:center">
+              my work
+            </div>
+            <div
+              class="column col-4 col-ml-auto heading"
+              style=" text-align:center; height: 50px">
+              <a class="icon" href="https://github.com/tamari-gray">
+                <FaArrowRight />
+              </a>
+            </div>
           </div>
         </div>
         <div class="column col-12">project component</div>
