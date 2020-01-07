@@ -13,8 +13,7 @@
 
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
   import MdEmail from "svelte-icons/md/MdEmail.svelte";
-	import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte'
-
+  import FaArrowRight from "svelte-icons/fa/FaArrowRight.svelte";
 
   import { onMount } from "svelte";
   import * as THREE from "three";
@@ -107,14 +106,14 @@
     margin: 0 0 0.5em 0;
     text-align: center;
   }
-
+  /* 
   .icon:first-child {
     min-width: 32px;
     min-height: 32px;
     max-width: 32px;
-    max-height:32px;
-		padding: 1em 0.5em 0.5em 0.5em
-  }
+    max-height: 32px;
+    padding: 1em 0.5em 0.5em 0.5em;
+  } */
 
   span {
     text-decoration: underline;
@@ -125,7 +124,7 @@
       font-size: 4em;
     }
     .projects {
-      margin-top:5vh
+      margin-top: 5vh;
     }
   }
 </style>
@@ -152,22 +151,87 @@
     </div>
     <!-- projects section -->
     <div class="column col-12 full-height">
-      <div class="container">
-        <div class="projects columns">
-          <div class="column col-12 columns">
-            <div class="column col-sm-6 col-4 heading" style=" text-align:center">
-              my work
+      <div class="projects columns">
+        <div class=" projects-nav column col-12 columns">
+          <div class="column col-sm-6 col-4 heading" style=" text-align:center">
+            my work
+          </div>
+          <div
+            class="column col-4 col-ml-auto heading"
+            style=" text-align:center; height: 50px">
+            <i class="icon icon-forward mr-1" />
+          </div>
+        </div>
+        <div class=" projects-title column col-12">
+          <h3 style="text-align:center">Title</h3>
+        </div>
+      </div>
+      <div class="project-comp column col-12">
+        <div class="columns">
+          <div class="column col-xs-12 col-5 col-mx-auto">img</div>
+          <div class="column col-xs-12 col-5 col-mx-auto">
+            <div class="accordion">
+              <input
+                type="checkbox"
+                id="accordion-1"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-1">
+                <i class="icon icon-arrow-right mr-1" />
+                my role
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                fnsjkb
+              </div>
             </div>
-            <div
-              class="column col-4 col-ml-auto heading"
-              style=" text-align:center; height: 50px">
-              <a class="icon" href="https://github.com/tamari-gray">
-                <FaArrowRight />
-              </a>
+            <div class="accordion">
+              <input
+                type="checkbox"
+                id="accordion-2"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-2">
+                <i class="icon icon-arrow-right mr-1" />
+                technologies used
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                fnsjkb
+              </div>
+            </div>
+            <div class="accordion">
+              <input
+                type="checkbox"
+                id="accordion-3"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-3">
+                <i class="icon icon-arrow-right mr-1" />
+                What i learned
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                fnsjkb
+              </div>
+            </div>
+            <div class="accordion">
+              <input
+                type="checkbox"
+                id="accordion-4"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-4">
+                <i class="icon icon-arrow-right mr-1" />
+                Notable features
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                fnsjkb
+              </div>
             </div>
           </div>
         </div>
-        <div class="column col-12">project component</div>
       </div>
     </div>
     <div class="column col-12 about">about me section</div>
