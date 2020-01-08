@@ -127,6 +127,15 @@
       margin-top: 5vh;
     }
   }
+
+  .projects-nav {
+    margin-bottom:5vh;
+  }
+
+  img {
+    width: 300px;
+    height:150px;
+  }
 </style>
 
 <svelte:head>
@@ -143,32 +152,42 @@
           Im a
           <span>full stack developer</span>
         </h1>
-        <button class="btn " href=".">view my work</button>
-        <button class="btn" href=".">
-          <span class="text-dark">contact me</span>
-        </button>
+        <div style="display:flex">
+          <button class="btn btn-primary" href=".">View my work</button>
+          <button class="btn" href=".">contact me</button>
+        </div>
       </div>
     </div>
     <!-- projects section -->
     <div class="column col-12 full-height">
       <div class="projects columns">
-        <div class=" projects-nav column col-12 columns">
-          <div class="column col-sm-6 col-4 heading" style=" text-align:center">
-            my work
-          </div>
-          <div
-            class="column col-4 col-ml-auto heading"
-            style=" text-align:center; height: 50px">
-            <i class="icon icon-forward mr-1" />
+        <div class=" projects-nav column col-12">
+          <div class="columns">
+            <div
+              class="column col-sm-6 col-4 heading"
+              style=" text-align:center">
+              My work
+            </div>
+            <div
+              class="column col-4 col-ml-auto heading"
+              style=" text-align:center; height: 50px">
+              <i class="icon icon-forward mr-1" style="color:#585bd9" />
+            </div>
           </div>
         </div>
         <div class=" projects-title column col-12">
-          <h3 style="text-align:center">Title</h3>
+          <h3 style="text-align:center">Cleaner homes website design & dev</h3>
         </div>
       </div>
       <div class="project-comp column col-12">
         <div class="columns">
-          <div class="column col-xs-12 col-5 col-mx-auto">img</div>
+          <div class="column col-xs-12 col-5 col-mx-auto">
+            <img src="cleanerHomes.png" alt="">
+            <div style="display:flex">
+              <button class="btn btn-primary" href=".">View code</button>
+              <button class="btn" href=".">live version</button>
+            </div>
+          </div>
           <div class="column col-xs-12 col-5 col-mx-auto">
             <div class="accordion">
               <input
