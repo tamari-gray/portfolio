@@ -1,9 +1,11 @@
 <script>
   export let segment;
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
-	import MdEmail from "svelte-icons/md/MdEmail.svelte";
-	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
-	import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
+  import MdEmail from "svelte-icons/md/MdEmail.svelte";
+  import FaLinkedin from "svelte-icons/fa/FaLinkedin.svelte";
+  import FaLinkedinIn from "svelte-icons/fa/FaLinkedinIn.svelte";
+
+  import * as animateScroll from "svelte-scrollto";
 </script>
 
 <style>
@@ -12,7 +14,7 @@
     padding: 0 1em;
     height: 8.5vh;
     position: relative;
-    z-index:100;
+    z-index: 100;
   }
 
   ul {
@@ -53,7 +55,6 @@
     display: block;
   }
 
-
   .icons {
     float: right;
   }
@@ -62,10 +63,9 @@
     min-width: 32px;
     min-height: 32px;
     max-width: 32px;
-    max-height:32px;
-		padding: 1em 0.5em 0.5em 0.5em
+    max-height: 32px;
+    padding: 1em 0.5em 0.5em 0.5em;
   }
-
 </style>
 
 <nav>
@@ -78,15 +78,19 @@
     <li>
       <a
         rel="prefetch"
+        on:click={() => animateScroll.scrollTo({
+            element: '#projects-section',
+            duration: 1000
+          })}
         class={segment === 'projects' ? 'selected' : ''}
-        href="projects">
+        href=".">
         my work
       </a>
     </li>
     <li>
       <a class={segment === 'about' ? 'selected' : ''} href="about">about</a>
     </li>
-		<li>
+    <li>
       <a class={segment === 'resume' ? 'selected' : ''} href="resume">resume</a>
     </li>
     <li class="icons">

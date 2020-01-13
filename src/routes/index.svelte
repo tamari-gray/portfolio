@@ -11,6 +11,8 @@
 <script>
   export let posts;
 
+  import * as animateScroll from "svelte-scrollto";
+
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
   import MdEmail from "svelte-icons/md/MdEmail.svelte";
   import FaArrowRight from "svelte-icons/fa/FaArrowRight.svelte";
@@ -63,6 +65,7 @@
       renderer.render(scene, camera);
     }
   }
+
 </script>
 
 <style>
@@ -153,13 +156,13 @@
           <span>full stack developer</span>
         </h1>
         <div style="display:flex">
-          <button class="btn btn-primary" href=".">View my work</button>
+          <button class="btn btn-primary" on:click={() => animateScroll.scrollTo({element: '#projects-section', duration: 1000})}>View my work</button>
           <button class="btn" href=".">contact me</button>
         </div>
       </div>
     </div>
     <!-- projects section -->
-    <div class="column col-12 full-height">
+    <div id="projects-section"class="column col-12 full-height">
       <div class="projects columns">
         <div class=" projects-nav column col-12">
           <div class="columns">
