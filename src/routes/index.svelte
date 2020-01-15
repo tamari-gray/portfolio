@@ -65,7 +65,6 @@
       renderer.render(scene, camera);
     }
   }
-
 </script>
 
 <style>
@@ -132,12 +131,17 @@
   }
 
   .projects-nav {
-    margin-bottom:5vh;
+    margin-bottom: 5vh;
   }
 
   img {
     width: 300px;
-    height:150px;
+    height: 150px;
+  }
+
+  .accordian-tam {
+    width: 75vw;
+    margin: auto;
   }
 </style>
 
@@ -156,13 +160,20 @@
           <span>full stack developer</span>
         </h1>
         <div style="display:flex">
-          <button class="btn btn-primary" on:click={() => animateScroll.scrollTo({element: '#projects-section', duration: 1000})}>View my work</button>
+          <button
+            class="btn btn-primary"
+            on:click={() => animateScroll.scrollTo({
+                element: '#projects-section',
+                duration: 1000
+              })}>
+            View my work
+          </button>
           <button class="btn" href=".">contact me</button>
         </div>
       </div>
     </div>
     <!-- projects section -->
-    <div id="projects-section"class="column col-12 full-height">
+    <div id="projects-section" class="column col-12 full-height">
       <div class="projects columns">
         <div class=" projects-nav column col-12">
           <div class="columns">
@@ -179,20 +190,29 @@
           </div>
         </div>
         <div class=" projects-title column col-12">
-          <h3 style="text-align:center">Cleaner homes website design & dev</h3>
+          <h4 style="text-align:center; font-size:1.2rem">
+            Cleaner homes website
+          </h4>
         </div>
       </div>
-      <div class="project-comp column col-12">
-        <div class="columns">
-          <div class="column col-xs-12 col-5 col-mx-auto">
-            <img src="cleanerHomes.png" alt="">
-            <div style="display:flex">
-              <button class="btn btn-primary" href=".">View code</button>
-              <button class="btn" href=".">live version</button>
+      <div class="project-comp column col-12" >
+        <div class="columns" >
+          <div class="column col-xs-12 col-5 col-mx-auto" style="margin-top:5vh">
+            <div class="columns" >
+              <img
+                class="col-12 col-mx-auto"
+                src="cleanerHomes.png"
+                alt="" />
+              <div
+                style="display: flex; justify-content: center; margin-top: 2vh;"
+                class="col-12 col-mx-auto">
+                <button class="btn btn-primary" href=".">View code</button>
+                <button class="btn" href=".">live version</button>
+              </div>
             </div>
           </div>
-          <div class="column col-xs-12 col-5 col-mx-auto">
-            <div class="accordion">
+          <div class="column col-xs-12 col-5 col-mx-auto" style="margin-top:5vh">
+            <div class="accordion accordian-tam">
               <input
                 type="checkbox"
                 id="accordion-1"
@@ -207,7 +227,7 @@
                 fnsjkb
               </div>
             </div>
-            <div class="accordion">
+            <div class="accordion accordian-tam">
               <input
                 type="checkbox"
                 id="accordion-2"
@@ -222,7 +242,7 @@
                 fnsjkb
               </div>
             </div>
-            <div class="accordion">
+            <div class="accordion accordian-tam">
               <input
                 type="checkbox"
                 id="accordion-3"
@@ -237,7 +257,7 @@
                 fnsjkb
               </div>
             </div>
-            <div class="accordion">
+            <div class="accordion accordian-tam">
               <input
                 type="checkbox"
                 id="accordion-4"

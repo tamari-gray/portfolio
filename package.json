@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "tamari_gray_portfolio",
+  "description": "software developer portfolio",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
@@ -40,6 +40,7 @@
     "rollup-plugin-terser": "^4.0.4",
     "sapper": "^0.27.0",
     "svelte": "^3.0.0",
-    "svelte-preprocess": "^3.2.5"
+    "svelte-preprocess": "^3.2.5",
+    "svelte-scrollto": "^0.1.1"
   }
 }
