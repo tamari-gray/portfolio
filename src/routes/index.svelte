@@ -65,6 +65,21 @@
       renderer.render(scene, camera);
     }
   }
+
+  console.log(posts)
+
+  let activeProject = 0
+
+  function handleProjectToggle() {
+    const length = posts.length
+
+    activeProject = activeProject + 1
+
+    activeProject > length ? activeProject = 0 : false
+
+    console.log(activeProject)
+
+  }
 </script>
 
 <style>
@@ -185,7 +200,7 @@
             <div
               class="column col-4 col-ml-auto heading"
               style=" text-align:center; height: 50px">
-              <i class="icon icon-forward mr-1" style="color:#585bd9" />
+              <i class="icon icon-forward mr-1" style="color:#585bd9" on:click={handleProjectToggle} />
             </div>
           </div>
         </div>
