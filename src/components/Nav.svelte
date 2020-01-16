@@ -1,17 +1,20 @@
 <script>
   export let segment;
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
-	import MdEmail from "svelte-icons/md/MdEmail.svelte";
-	import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte';
-	import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
+  import MdEmail from "svelte-icons/md/MdEmail.svelte";
+  import FaLinkedin from "svelte-icons/fa/FaLinkedin.svelte";
+  import FaLinkedinIn from "svelte-icons/fa/FaLinkedinIn.svelte";
+
+  import * as animateScroll from "svelte-scrollto";
 </script>
 
 <style>
   nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;
     padding: 0 1em;
     height: 8.5vh;
+    position: relative;
+    z-index: 100;
   }
 
   ul {
@@ -57,40 +60,52 @@
   }
 
   .icon {
-    width: 32px;
-    height: 32px;
-		padding: 1em 0.5em 0.5em 0.5em
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    padding: 1em 0.5em 0.5em 0.5em;
   }
-
 </style>
 
 <nav>
-  <ul>
+  <ul style="text-decoration:none">
     <li>
       <a class={segment === undefined ? 'selected' : ''} href=".">
         Tamari Gray
       </a>
     </li>
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
     <li>
       <a
         rel="prefetch"
-        class={segment === 'blog' ? 'selected' : ''}
-        href="blog">
-        projects
+        on:click={() => animateScroll.scrollTo({
+            element: '#projects-section',
+            duration: 1000
+          })}
+        class={segment === 'projects' ? 'selected' : ''}
+        href=".">
+        my work
       </a>
     </li>
     <li>
-      <a class={segment === 'about' ? 'selected' : ''} href="about">about</a>
+      <a
+        class={segment === 'about' ? 'selected' : ''}
+        on:click={() => animateScroll.scrollTo({
+            element: '#about-section',
+            duration: 1000
+          })}
+        href=".">
+        about
+      </a>
     </li>
-		<li>
-      <a class={segment === 'resume' ? 'selected' : ''} href="resume">resume</a>
+    <li>
+      <a class={segment === 'resume' ? 'selected' : ''} href=".">resume</a>
     </li>
-		<li>
-      <a class={segment === 'contact' ? 'selected' : ''} href="contact">contact</a>
+    <li class="icons">
+      <a class="icon" href="https://github.com/tamari-gray">
+        <DiGithubBadge />
+      </a>
     </li>
-
     <li class="icons">
       <a class="icon" href="https://github.com/tamari-gray">
         <DiGithubBadge />

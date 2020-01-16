@@ -1,4 +1,22 @@
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch(`/projects.json`)
+      .then(r => r.json())
+      .then(posts => {
+        return { posts };
+      });
+  }
+</script>
+
 <script>
+  export let posts;
+
+  import * as animateScroll from "svelte-scrollto";
+
+  import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
+  import MdEmail from "svelte-icons/md/MdEmail.svelte";
+  import FaArrowRight from "svelte-icons/fa/FaArrowRight.svelte";
+
   import { onMount } from "svelte";
   import * as THREE from "three";
 
@@ -32,9 +50,8 @@
 
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
-      document
-        .querySelector(".svelte-1uhnsl8")
-        .setAttribute("style", "padding: 0;");
+      document.querySelector(".svelte-1uhnsl8");
+      // .setAttribute("style", "padding: 0;");
       renderer.domElement.setAttribute("style", "width: 100vw; height: 100vh");
       document.querySelector(".scene").appendChild(renderer.domElement);
     }
@@ -47,6 +64,22 @@
 
       renderer.render(scene, camera);
     }
+  }
+
+  console.log(posts);
+
+  let activeProject = 0;
+
+  $: activeProjectContent = posts[activeProject];
+
+  $: console.log(activeProject, activeProjectContent);
+
+  function handleProjectToggle() {
+    const length = posts.length - 1;
+
+    activeProject = activeProject + 1;
+
+    activeProject > length ? (activeProject = 0) : false;
   }
 </script>
 
@@ -68,9 +101,21 @@
     justify-content: center;
     align-content: center;
     height: 80vh;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
     color: antiquewhite;
+  }
+
+  .full-height {
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+
+  .heading {
+    font-size: 2.4em;
   }
 
   h1 {
@@ -79,10 +124,14 @@
     margin: 0 0 0.5em 0;
     text-align: center;
   }
-
-  h3 {
-    font-size: 1.2em;
-  }
+  /* 
+  .icon:first-child {
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    padding: 1em 0.5em 0.5em 0.5em;
+  } */
 
   span {
     text-decoration: underline;
@@ -92,9 +141,23 @@
     h1 {
       font-size: 4em;
     }
-    h3 {
-      font-size: 1.6em;
+    .projects {
+      margin-top: 5vh;
     }
+  }
+
+  .projects-nav {
+    margin-bottom: 5vh;
+  }
+
+  img {
+    width: 300px;
+    height: 150px;
+  }
+
+  .accordian-tam {
+    width: 75vw;
+    margin: auto;
   }
 </style>
 
@@ -103,10 +166,176 @@
 </svelte:head>
 
 <div class="scene" />
-<div class="hero">
-  <h1>
-    Im a
-    <span>full stack developer</span>
-  </h1>
-  <h3>=> making cool stuff is fun :)</h3>
+<div class="container">
+  <div class="columns" style="min-width:100vw">
+    <!-- hero section -->
+    <div class="column col-12" style="height:91.5vh">
+      <div class="hero">
+        <h1>
+          Im a
+          <span>full stack developer</span>
+        </h1>
+        <div style="display:flex">
+          <button
+            class="btn btn-primary"
+            on:click={() => animateScroll.scrollTo({
+                element: '#projects-section',
+                duration: 1000
+              })}>
+            View my work
+          </button>
+          <button class="btn" href=".">contact me</button>
+        </div>
+      </div>
+    </div>
+    <!-- projects section -->
+    <div id="projects-section" class="column col-12 full-height">
+      <div class="projects columns">
+        <div class=" projects-nav column col-12">
+          <div class="columns">
+            <div
+              class="column col-sm-6 col-4 heading"
+              style=" text-align:center">
+              My work
+            </div>
+            <div
+              class="column col-4 col-ml-auto heading"
+              style=" text-align:center; height: 50px">
+              <i
+                class="icon icon-forward mr-1"
+                style="color:#585bd9"
+                on:click={handleProjectToggle} />
+            </div>
+          </div>
+        </div>
+        <div class=" projects-title column col-12">
+          <h4 style="text-align:center; font-size:1.2rem">
+            {activeProjectContent.title}
+          </h4>
+        </div>
+      </div>
+      <div class="project-comp column col-12">
+        <div class="columns">
+          <div
+            class="column col-xs-12 col-5 col-mx-auto"
+            style="margin-top:5vh">
+            <div class="columns">
+              <img
+                class="col-12 col-mx-auto"
+                src={activeProjectContent.img}
+                alt="" />
+              <div
+                style="display: flex; justify-content: center; margin-top: 2vh;"
+                class="col-12 col-mx-auto">
+                <button class="btn btn-primary" href=".">View code</button>
+                <button class="btn" href=".">live version</button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column col-xs-12 col-5 col-mx-auto"
+            style="margin-top:5vh">
+            <div class="accordion accordian-tam">
+              <input
+                type="checkbox"
+                id="accordion-1"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-1">
+                <i class="icon icon-arrow-right mr-1" />
+                my role
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                {activeProjectContent.myRole}
+              </div>
+            </div>
+            <div class="accordion accordian-tam">
+              <input
+                type="checkbox"
+                id="accordion-2"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-2">
+                <i class="icon icon-arrow-right mr-1" />
+                Technologies used
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                {activeProjectContent.techUsed}
+              </div>
+            </div>
+            <div class="accordion accordian-tam">
+              <input
+                type="checkbox"
+                id="accordion-3"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-3">
+                <i class="icon icon-arrow-right mr-1" />
+                What i learned
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                {activeProjectContent.learnings}
+              </div>
+            </div>
+            <div class="accordion accordian-tam">
+              <input
+                type="checkbox"
+                id="accordion-4"
+                name="accordion-checkbox"
+                hidden />
+              <label class="accordion-header" for="accordion-4">
+                <i class="icon icon-arrow-right mr-1" />
+                Notable features
+              </label>
+              <div class="accordion-body">
+                <!-- Accordions content -->
+                {activeProjectContent.features}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- about section -->
+    <div class="divider" />
+    <div id="about-section" class="column col-12 about full-height">
+      <div class="about columns">
+        <div class=" projects-nav column col-12">
+          <div class="columns">
+            <div
+              class="column col-sm-6 col-4 heading"
+              style=" text-align:center">
+              About me
+            </div>
+            <div
+              class="column col-4 col-ml-auto heading"
+              style=" text-align:center; height: 50px">
+              <button class="btn " on:click={() => console.log('yeet')}>
+                <i class="icon icon-arrow-right" />
+                Get in touch
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="column col-xs-10 col-8 col-mx-auto">
+          description
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- 
+
+
+
+<ul>
+  {#each posts as post}
+    <li>
+      <a rel="prefetch" href="projects/{post.slug}">{post.title}</a>
+    </li>
+  {/each}
+</ul> -->
