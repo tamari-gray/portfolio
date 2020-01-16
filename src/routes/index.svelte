@@ -70,14 +70,16 @@
 
   let activeProject = 0
 
+  $: activeProjectContent = posts[activeProject]
+
+  $: console.log(activeProject, activeProjectContent)
+
   function handleProjectToggle() {
-    const length = posts.length
+    const length = posts.length - 1
 
     activeProject = activeProject + 1
 
     activeProject > length ? activeProject = 0 : false
-
-    console.log(activeProject)
 
   }
 </script>
@@ -206,7 +208,7 @@
         </div>
         <div class=" projects-title column col-12">
           <h4 style="text-align:center; font-size:1.2rem">
-            Cleaner homes website
+            {activeProjectContent.title}
           </h4>
         </div>
       </div>
@@ -216,7 +218,7 @@
             <div class="columns" >
               <img
                 class="col-12 col-mx-auto"
-                src="cleanerHomes.png"
+                src={activeProjectContent.img}
                 alt="" />
               <div
                 style="display: flex; justify-content: center; margin-top: 2vh;"
@@ -239,7 +241,7 @@
               </label>
               <div class="accordion-body">
                 <!-- Accordions content -->
-                fnsjkb
+                {activeProjectContent.myRole}
               </div>
             </div>
             <div class="accordion accordian-tam">
@@ -250,11 +252,11 @@
                 hidden />
               <label class="accordion-header" for="accordion-2">
                 <i class="icon icon-arrow-right mr-1" />
-                technologies used
+                Technologies used
               </label>
               <div class="accordion-body">
                 <!-- Accordions content -->
-                fnsjkb
+                {activeProjectContent.techUsed}
               </div>
             </div>
             <div class="accordion accordian-tam">
@@ -269,7 +271,7 @@
               </label>
               <div class="accordion-body">
                 <!-- Accordions content -->
-                fnsjkb
+                {activeProjectContent.learnings}
               </div>
             </div>
             <div class="accordion accordian-tam">
@@ -284,7 +286,7 @@
               </label>
               <div class="accordion-body">
                 <!-- Accordions content -->
-                fnsjkb
+                {activeProjectContent.features}
               </div>
             </div>
           </div>
