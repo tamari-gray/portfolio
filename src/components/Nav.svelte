@@ -88,10 +88,18 @@
       </a>
     </li>
     <li>
-      <a class={segment === 'about' ? 'selected' : ''} href="about">about</a>
+      <a
+        class={segment === 'about' ? 'selected' : ''}
+        on:click={() => animateScroll.scrollTo({
+            element: '#about-section',
+            duration: 1000
+          })}
+        href=".">
+        about
+      </a>
     </li>
     <li>
-      <a class={segment === 'resume' ? 'selected' : ''} href="resume">resume</a>
+      <a class={segment === 'resume' ? 'selected' : ''} href=".">resume</a>
     </li>
     <li class="icons">
       <a class="icon" href="https://github.com/tamari-gray">

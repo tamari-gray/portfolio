@@ -66,21 +66,20 @@
     }
   }
 
-  console.log(posts)
+  console.log(posts);
 
-  let activeProject = 0
+  let activeProject = 0;
 
-  $: activeProjectContent = posts[activeProject]
+  $: activeProjectContent = posts[activeProject];
 
-  $: console.log(activeProject, activeProjectContent)
+  $: console.log(activeProject, activeProjectContent);
 
   function handleProjectToggle() {
-    const length = posts.length - 1
+    const length = posts.length - 1;
 
-    activeProject = activeProject + 1
+    activeProject = activeProject + 1;
 
-    activeProject > length ? activeProject = 0 : false
-
+    activeProject > length ? (activeProject = 0) : false;
   }
 </script>
 
@@ -202,7 +201,10 @@
             <div
               class="column col-4 col-ml-auto heading"
               style=" text-align:center; height: 50px">
-              <i class="icon icon-forward mr-1" style="color:#585bd9" on:click={handleProjectToggle} />
+              <i
+                class="icon icon-forward mr-1"
+                style="color:#585bd9"
+                on:click={handleProjectToggle} />
             </div>
           </div>
         </div>
@@ -212,10 +214,12 @@
           </h4>
         </div>
       </div>
-      <div class="project-comp column col-12" >
-        <div class="columns" >
-          <div class="column col-xs-12 col-5 col-mx-auto" style="margin-top:5vh">
-            <div class="columns" >
+      <div class="project-comp column col-12">
+        <div class="columns">
+          <div
+            class="column col-xs-12 col-5 col-mx-auto"
+            style="margin-top:5vh">
+            <div class="columns">
               <img
                 class="col-12 col-mx-auto"
                 src={activeProjectContent.img}
@@ -228,7 +232,9 @@
               </div>
             </div>
           </div>
-          <div class="column col-xs-12 col-5 col-mx-auto" style="margin-top:5vh">
+          <div
+            class="column col-xs-12 col-5 col-mx-auto"
+            style="margin-top:5vh">
             <div class="accordion accordian-tam">
               <input
                 type="checkbox"
@@ -293,7 +299,32 @@
         </div>
       </div>
     </div>
-    <div class="column col-12 about">about me section</div>
+    <!-- about section -->
+    <div class="divider" />
+    <div id="about-section" class="column col-12 about full-height">
+      <div class="about columns">
+        <div class=" projects-nav column col-12">
+          <div class="columns">
+            <div
+              class="column col-sm-6 col-4 heading"
+              style=" text-align:center">
+              About me
+            </div>
+            <div
+              class="column col-4 col-ml-auto heading"
+              style=" text-align:center; height: 50px">
+              <button class="btn " on:click={() => console.log('yeet')}>
+                <i class="icon icon-arrow-right" />
+                Get in touch
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="column col-xs-10 col-8 col-mx-auto">
+          description
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
