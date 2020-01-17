@@ -59,7 +59,7 @@
     float: right;
   }
 
-  .icon {
+  .icon-navbar {
     min-width: 32px;
     min-height: 32px;
     max-width: 32px;
@@ -102,17 +102,17 @@
       <a class={segment === 'resume' ? 'selected' : ''} href=".">resume</a>
     </li>
     <li class="icons">
-      <a class="icon" href="https://github.com/tamari-gray">
+      <a class="icon-navbar" href="https://github.com/tamari-gray">
         <DiGithubBadge />
       </a>
     </li>
     <li class="icons">
-      <a class="icon" href="https://github.com/tamari-gray">
+      <a class="icon-navbar" href="https://github.com/tamari-gray">
         <DiGithubBadge />
       </a>
     </li>
     <li class="icons">
-      <a class="icon" href="https://www.linkedin.com/in/tamari-gray-44128618a/">
+      <a class="icon-navbar" href="https://www.linkedin.com/in/tamari-gray-44128618a/">
         <FaLinkedin />
       </a>
     </li>
