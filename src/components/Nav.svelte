@@ -9,6 +9,26 @@
 </script>
 
 <style>
+  #burger-nav {
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 2.5vh;
+    left: 5vw;
+    z-index: 110;
+  }
+
+  @media (max-width: 480px) {
+    #full-nav {
+      display: none;
+    }
+
+    #burger-nav {
+      display: block;
+    }
+  }
+
   nav {
     font-weight: 300;
     padding: 0 1em;
@@ -68,7 +88,9 @@
   }
 </style>
 
-<nav>
+<div class="overlay" />
+
+<nav id="full-nav">
   <ul style="text-decoration:none">
     <li>
       <a class={segment === undefined ? 'selected' : ''} href=".">
@@ -112,9 +134,15 @@
       </a>
     </li>
     <li class="icons">
-      <a class="icon-navbar" href="https://www.linkedin.com/in/tamari-gray-44128618a/">
+      <a
+        class="icon-navbar"
+        href="https://www.linkedin.com/in/tamari-gray-44128618a/">
         <FaLinkedin />
       </a>
     </li>
   </ul>
 </nav>
+
+<div id="burger-nav" class="s-circle">
+  <i class="icon icon-2x icon-menu" style="color:white" />
+</div>

@@ -66,8 +66,7 @@
     }
   }
 
-  console.log(posts);
-
+  // toggle projects
   let activeProject = 0;
 
   $: activeProjectContent = posts[activeProject];
@@ -80,6 +79,13 @@
     activeProject = activeProject + 1;
 
     activeProject > length ? (activeProject = 0) : false;
+  }
+
+  // navbar
+  let y = 0;
+  $: if (y >= 500) {
+    console.log(y)
+    document.getElementById("burger-nav").style.color = "585bd9";
   }
 </script>
 
@@ -124,15 +130,6 @@
     margin: 0 0 0.5em 0;
     text-align: center;
   }
-  /* 
-  .icon:first-child {
-    min-width: 32px;
-    min-height: 32px;
-    max-width: 32px;
-    max-height: 32px;
-    padding: 1em 0.5em 0.5em 0.5em;
-  } */
-
   span {
     text-decoration: underline;
   }
@@ -164,6 +161,8 @@
 <svelte:head>
   <title>Tamari gray</title>
 </svelte:head>
+
+<svelte:window bind:scrollY={y}/>
 
 <div class="scene" />
 <div class="container">
@@ -320,22 +319,8 @@
             </div>
           </div>
         </div>
-        <div class="column col-xs-10 col-8 col-mx-auto">
-          description
-        </div>
+        <div class="column col-xs-10 col-8 col-mx-auto">description</div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- 
-
-
-
-<ul>
-  {#each posts as post}
-    <li>
-      <a rel="prefetch" href="projects/{post.slug}">{post.title}</a>
-    </li>
-  {/each}
-</ul> -->
