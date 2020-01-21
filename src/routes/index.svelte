@@ -118,8 +118,7 @@
   }
 
   .full-height {
-    min-height: 100vh;
-    max-height: 100vh;
+    height: 100%;
   }
 
   .heading {
@@ -172,6 +171,10 @@
       width: 80vw;
     }
   }
+
+  #about-section {
+    margin-top: 5vh;
+  }
 </style>
 
 <svelte:head>
@@ -187,8 +190,9 @@
     <div class="column col-12" style="height:91.5vh">
       <div class="hero">
         <h1>
-          Im a
-          <span>full stack developer</span>
+          A
+          <span>full stack</span>
+          developer
         </h1>
         <div style="display:flex">
           <button
@@ -231,10 +235,10 @@
             style="margin-top:5vh">
             <div class="columns">
               <!-- <div style="max-height: 300px; overflow-y:scroll"> -->
-                <img
-                  class=" column col-12 col-mx-auto"
-                  src={'/' + activeProjectContent.img}
-                  alt="" />
+              <img
+                class=" column col-12 col-mx-auto"
+                src={'/' + activeProjectContent.img}
+                alt="" />
               <!-- </div> -->
               <div class=" projects-title column col-12 col-mx-auto">
                 <h4 style="text-align:center; font-size:1.4em; font-weight:400">
