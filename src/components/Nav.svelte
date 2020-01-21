@@ -6,6 +6,21 @@
   import FaLinkedinIn from "svelte-icons/fa/FaLinkedinIn.svelte";
 
   import * as animateScroll from "svelte-scrollto";
+
+  let showOverlay = false;
+
+  function handleOverlayToggle() {
+    showOverlay = !showOverlay;
+    console.log("toggling", showOverlay);
+  }
+
+  function handleScrollToFromOverlay(element) {
+    handleOverlayToggle()
+    animateScroll.scrollTo({
+            element: '#' + element,
+            duration: 1000
+          })
+  }
 </script>
 
 <style>
@@ -86,9 +101,70 @@
     max-height: 32px;
     padding: 1em 0.5em 0.5em 0.5em;
   }
+
+  .overlay {
+    display: none;
+    background-color: black;
+    color: white;
+    position: fixed;
+    z-index: 200;
+  }
+  .overlay-content {
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin-top:5vh;
+    align-content: center;
+  }
+  #burger-nav-exit {
+    position: relative;
+    width: 50px;
+    height: 8.5vh;
+    top: 2.5vh;
+    left: 5vw;
+    z-index: 110;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .overlay-icons {
+    display: flex;
+    justify-content: center;
+  }
 </style>
 
-<div class="overlay" />
+<div class="overlay" class:show={showOverlay === true}>
+  <div id="burger-nav-exit" on:click={handleOverlayToggle}>
+    <i class="icon icon-2x icon-cross" style="color:white" />
+  </div>
+
+  <div class="overlay-content">
+
+    <h1>Tamari gray</h1>
+    <a href="." on:click={() => handleScrollToFromOverlay("projects-section")}>My work</a>
+    <a href="." on:click={() => handleScrollToFromOverlay("about-section")} >About me</a>
+    <a href="mailto:tamarigray97@gmail.com">Contact me</a>
+    <a href=".">My resume</a>
+    <div class="overlay-icons">
+      <a class="icon-navbar" href="https://github.com/tamari-gray">
+        <DiGithubBadge />
+      </a>
+      <a class="icon-navbar" href="https://github.com/tamari-gray">
+        <DiGithubBadge />
+      </a>
+      <a
+        class="icon-navbar"
+        href="https://www.linkedin.com/in/tamari-gray-44128618a/">
+        <FaLinkedin />
+      </a>
+    </div>
+
+  </div>
+</div>
 
 <nav id="full-nav">
   <ul style="text-decoration:none">
@@ -143,6 +219,9 @@
   </ul>
 </nav>
 
-<div id="burger-nav" class="s-circle">
+<div
+  id="burger-nav"
+  class:show={showOverlay === false}
+  on:click={handleOverlayToggle}>
   <i class="icon icon-2x icon-menu" style="color:white" />
 </div>
