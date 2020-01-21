@@ -153,7 +153,7 @@
   }
 
   .accordian-tam {
-    width: 75vw;
+    width: 40vw;
     margin: auto;
   }
 </style>
@@ -215,14 +215,18 @@
             style="margin-top:5vh">
             <div class="columns">
               <div class=" projects-title column col-12">
-                <h4 style="text-align:center; font-size:1.2rem; font-weight:400">
+                <h4
+                  style="text-align:center; font-size:1.2rem; font-weight:400">
                   {activeProjectContent.title}
                 </h4>
               </div>
               <img
                 class=" column col-12 col-mx-auto"
-                src={activeProjectContent.img}
+                src={'/' + activeProjectContent.img}
                 alt="" />
+              <!-- <div class="column col-12 col-mx-auto">
+                <p>{activeProjectContent.description}</p>
+              </div> -->
               <div
                 style="display: flex; justify-content: center; margin-top: 2vh;"
                 class="column col-12 col-mx-auto">
@@ -237,12 +241,27 @@
             <div class="accordion accordian-tam">
               <input
                 type="checkbox"
+                id="accordion-0"
+                name="accordion-checkbox" 
+                hidden
+                />
+              <label class="accordion-header" for="accordion-0">
+                <i class="icon icon-arrow-right mr-1" />
+                Description
+              </label>
+              <div class="accordion-body">
+                <p>{activeProjectContent.description}</p>
+              </div>
+            </div>
+            <div class="accordion accordian-tam">
+              <input
+                type="checkbox"
                 id="accordion-1"
                 name="accordion-checkbox"
                 hidden />
               <label class="accordion-header" for="accordion-1">
                 <i class="icon icon-arrow-right mr-1" />
-                my role
+                My role
               </label>
               <div class="accordion-body">
                 <!-- Accordions content -->
@@ -260,8 +279,11 @@
                 Technologies used
               </label>
               <div class="accordion-body">
-                <!-- Accordions content -->
-                {activeProjectContent.techUsed}
+                <!-- <ul> -->
+                {#each activeProjectContent.techUsed as tech}
+                  <span class="chip" style="text-decoration: none">{tech}</span>
+                {/each}
+                <!-- </ul> -->
               </div>
             </div>
             <div class="accordion accordian-tam">
@@ -272,11 +294,14 @@
                 hidden />
               <label class="accordion-header" for="accordion-3">
                 <i class="icon icon-arrow-right mr-1" />
-                What i learned
+                Key learnings
               </label>
               <div class="accordion-body">
-                <!-- Accordions content -->
-                {activeProjectContent.learnings}
+                <ul>
+                  {#each activeProjectContent.learnings as learning}
+                    <li>{learning}</li>
+                  {/each}
+                </ul>
               </div>
             </div>
             <div class="accordion accordian-tam">
@@ -290,8 +315,11 @@
                 Notable features
               </label>
               <div class="accordion-body">
-                <!-- Accordions content -->
-                {activeProjectContent.features}
+                <ul>
+                  {#each activeProjectContent.features as feature}
+                    <li>{feature}</li>
+                  {/each}
+                </ul>
               </div>
             </div>
           </div>

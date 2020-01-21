@@ -11,42 +11,66 @@ const posts = [
 	{
 		title: 'Cleaner homes and gardens website',
 		slug: 'cleaner-homes-website',
-		html:`<h1>yeet</h1>`,
-		tabs: [
-			{ name: "my role", content: "content fkjdsnfsdgnl" },
-			{ name: "tech", content: "content fkjdsnfsdgnl" },
-			{ name: "learnings", content: "content fkjdsnfsdgnl" },
-			{ name: "features", content: "content fkjdsnfsdgnl" }
-		]
+		img: 'cleaner.png',
+		description: 'Website design and development for an agricultural spraying and house cleaning company.',
+		myRole: 'I handled project management, client meetings, designing and developing independently',
+		techUsed: [
+			"Vue.js",
+			"Nuxt.js",
+			"storyblock CMS",
+			"vuetify.css",
+			"UXpin",
+			"goprospero"
+		],
+		features: [
+			"modern responsive design",
+			"headless cms integration",
+			"webhooks usage",
+			"custom components"
+		],
+		learnings: [
+			"keep refering to the main problem you are solving, alot of development time was wasted making features that i assumed would improve the project, but turned out unneccessary.",
+			"work through projects one step at a time. I began developing before finishing the design of the website. as a result, i was tring to design on the fly with css. This made design choices very difficult because instead of dragging an element i had to edit its styles manually.",
+
+		],
 	},
 	{
-		title: 'class project',
-		slug: 'how-to-use-sapper',
-		html: `
-			<h2>Step one</h2>
-			<p>Create a new project, using <a href='https://github.com/Rich-Harris/degit'>degit</a>:</p>
-
-			<pre><code>npx degit "sveltejs/sapper-template#rollup" my-app
-			cd my-app
-			npm install # or yarn!
-			npm run dev
-			</code></pre>
-
-			<h2>Step two</h2>
-			<p>Go to <a href='http://localhost:3000'>localhost:3000</a>. Open <code>my-app</code> in your editor. Edit the files in the <code>src/routes</code> directory or add new ones.</p>
-
-			<h2>Step three</h2>
-			<p>...</p>
-
-			<h2>Step four</h2>
-			<p>Resist overdone joke formats.</p>
-		`
+		title: 'Sonar',
+		slug: 'sonar',
+		img: 'sonar.PNG',
+		description: 'Sonar is an app created to solve the problem of young adults (like myself) wanting to socialise without the use of alchohol. It lets you play hide and seek in real life with a twist.. taggers and players get abilities! Turning the childhood favourite game into a strategic and thrilling event.',
+		myRole: 'over 3 months, I independently designed and developed Sonar from an idea to a working MVP.',
+		techUsed: [
+			"react.js",
+			"redux.js",
+			"firebase",
+			"geofirestore",
+			"grommet.css",
+			"invision studio"
+		],
+		features: [
+			"realtime geolocation online multiplayer functionality",
+			"user authentication",
+			"effective source control management"
+		],
+		learnings: [
+			"Automated tests are a must have for a big project. It ensures new features can be added seamlessy without breaking what was alreay there.",
+			"Breaking a project into tiny pieces makes it alot more manageable",
+			"THERES ALWAYS A SOLTION. sometimes it took me days or over a week but i always found a solution. never give up.",
+			"removing yourself from the workstation regularly can be very beneficial. I spent alot of time trying to figure out problems when the solution was staring me in the face. I just needed a clear mind to see it."
+		],
+	},
+	{
+		title: 'Polyglot',
+		slug: 'polyglot',
+		img: 'cleaner.png',
+		description: '',
+		myRole: '',
+		techUsed: '',
+		features: '',
+		learnings: '',
 	},
 
 ];
-
-posts.forEach(post => {
-	post.html = post.html.replace(/^\t{3}/gm, '');
-});
 
 export default posts;
