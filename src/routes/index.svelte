@@ -84,7 +84,7 @@
   // navbar
   let y = 0;
   $: if (y >= 500) {
-    console.log(y)
+    console.log(y);
     document.getElementById("burger-nav").style.color = "585bd9";
   }
 </script>
@@ -162,7 +162,7 @@
   <title>Tamari gray</title>
 </svelte:head>
 
-<svelte:window bind:scrollY={y}/>
+<svelte:window bind:scrollY={y} />
 
 <div class="scene" />
 <div class="container">
@@ -207,11 +207,6 @@
             </div>
           </div>
         </div>
-        <div class=" projects-title column col-12">
-          <h4 style="text-align:center; font-size:1.2rem">
-            {activeProjectContent.title}
-          </h4>
-        </div>
       </div>
       <div class="project-comp column col-12">
         <div class="columns">
@@ -219,13 +214,18 @@
             class="column col-xs-12 col-5 col-mx-auto"
             style="margin-top:5vh">
             <div class="columns">
+              <div class=" projects-title column col-12">
+                <h4 style="text-align:center; font-size:1.2rem; font-weight:400">
+                  {activeProjectContent.title}
+                </h4>
+              </div>
               <img
-                class="col-12 col-mx-auto"
+                class=" column col-12 col-mx-auto"
                 src={activeProjectContent.img}
                 alt="" />
               <div
                 style="display: flex; justify-content: center; margin-top: 2vh;"
-                class="col-12 col-mx-auto">
+                class="column col-12 col-mx-auto">
                 <button class="btn btn-primary" href=".">View code</button>
                 <button class="btn" href=".">live version</button>
               </div>
