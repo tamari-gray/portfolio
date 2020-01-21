@@ -140,9 +140,10 @@
     h1 {
       font-size: 4em;
     }
-    .projects {
-      margin-top: 5vh;
-    }
+  }
+
+  #projects-section {
+    margin-top: 5vh;
   }
 
   .projects-nav {
@@ -150,8 +151,8 @@
   }
 
   img {
-    width: 300px;
-    height: 150px;
+    width: 350px;
+    height: 200px;
   }
 
   .accordian-tam {
@@ -163,7 +164,13 @@
     font-size: 1em;
   }
   .accordian-title {
-    font-size: 1.4em
+    font-size: 1.4em;
+  }
+
+  @media (max-width: 480px) {
+    .accordian-tam {
+      width: 80vw;
+    }
   }
 </style>
 
@@ -220,17 +227,17 @@
       <div class="project-comp column col-12">
         <div class="columns">
           <div
-            class="column col-xs-12 col-5 col-mx-auto"
+            class="column col-xs-12 col-7 col-mx-auto"
             style="margin-top:5vh">
             <div class="columns">
-              
-              <img
-                class=" column col-12 col-mx-auto"
-                src={'/' + activeProjectContent.img}
-                alt="" />
-                <div class=" projects-title column col-12 col-mx-auto">
-                <h4
-                  style="text-align:center; font-size:1.4em; font-weight:400">
+              <!-- <div style="max-height: 300px; overflow-y:scroll"> -->
+                <img
+                  class=" column col-12 col-mx-auto"
+                  src={'/' + activeProjectContent.img}
+                  alt="" />
+              <!-- </div> -->
+              <div class=" projects-title column col-12 col-mx-auto">
+                <h4 style="text-align:center; font-size:1.4em; font-weight:400">
                   {activeProjectContent.title}
                 </h4>
               </div>
@@ -249,9 +256,8 @@
               <input
                 type="checkbox"
                 id="accordion-0"
-                name="accordion-checkbox" 
-                hidden
-                />
+                name="accordion-checkbox"
+                hidden />
               <label class="accordion-header accordian-title" for="accordion-0">
                 <i class="icon icon-arrow-right mr-1" />
                 Description
