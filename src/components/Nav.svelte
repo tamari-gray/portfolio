@@ -11,9 +11,9 @@
 <style>
   #burger-nav {
     display: none;
-    position: absolute;
+    position: relative;
     width: 50px;
-    height: 50px;
+    height: 8.5vh;
     top: 2.5vh;
     left: 5vw;
     z-index: 110;
