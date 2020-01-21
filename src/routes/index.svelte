@@ -175,6 +175,19 @@
   #about-section {
     margin-top: 5vh;
   }
+
+  .get-in-touch {
+    margin-top: 7.1vh;
+    /* height: 25vh; */
+    color: white;
+  }
+  .test {
+    text-align: center;
+    margin: auto;
+    width: 80vw;
+    height: 1pt;
+    background-color: #5a6175;
+  }
 </style>
 
 <svelte:head>
@@ -267,7 +280,7 @@
                 Description
               </label>
               <div class="accordion-body accordian-content">
-                <p>{activeProjectContent.description}</p>
+                {activeProjectContent.description}
               </div>
             </div>
             <div class="accordion accordian-tam">
@@ -343,6 +356,11 @@
         </div>
       </div>
     </div>
+    <!-- get in touch section -->
+    <div class="column col-12 get-in-touch">
+      <!-- <h1>how can I be of service?</h1> -->
+      <div class="test" />
+    </div>
     <!-- about section -->
     <div class="divider" />
     <div id="about-section" class="column col-12 about full-height">
@@ -357,10 +375,12 @@
             <div
               class="column col-4 col-ml-auto heading"
               style=" text-align:center; height: 50px">
-              <button class="btn " on:click={() => console.log('yeet')}>
-                <i class="icon icon-arrow-right" />
-                Get in touch
-              </button>
+              <a href="mailto:tamarigray97@gmail.com" target="_blank">
+                <button class="btn">
+                  <i class="icon icon-arrow-right" />
+                  Get in touch
+                </button>
+              </a>
             </div>
           </div>
         </div>
