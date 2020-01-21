@@ -48,6 +48,8 @@
       mesh = new THREE.Mesh(geometry, material);
       scene.add(mesh);
 
+      // mesh.position.y = 1
+
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.querySelector(".svelte-1uhnsl8");
@@ -84,7 +86,7 @@
   // navbar
   let y = 0;
   $: if (y >= 500) {
-    console.log(y);
+    // console.log(y);
     document.getElementById("burger-nav").style.color = "585bd9";
   }
 </script>
@@ -156,6 +158,13 @@
     width: 40vw;
     margin: auto;
   }
+  .accordian-content {
+    margin-left: 2em;
+    font-size: 1em;
+  }
+  .accordian-title {
+    font-size: 1.4em
+  }
 </style>
 
 <svelte:head>
@@ -214,19 +223,17 @@
             class="column col-xs-12 col-5 col-mx-auto"
             style="margin-top:5vh">
             <div class="columns">
-              <div class=" projects-title column col-12">
-                <h4
-                  style="text-align:center; font-size:1.2rem; font-weight:400">
-                  {activeProjectContent.title}
-                </h4>
-              </div>
+              
               <img
                 class=" column col-12 col-mx-auto"
                 src={'/' + activeProjectContent.img}
                 alt="" />
-              <!-- <div class="column col-12 col-mx-auto">
-                <p>{activeProjectContent.description}</p>
-              </div> -->
+                <div class=" projects-title column col-12 col-mx-auto">
+                <h4
+                  style="text-align:center; font-size:1.4em; font-weight:400">
+                  {activeProjectContent.title}
+                </h4>
+              </div>
               <div
                 style="display: flex; justify-content: center; margin-top: 2vh;"
                 class="column col-12 col-mx-auto">
@@ -245,11 +252,11 @@
                 name="accordion-checkbox" 
                 hidden
                 />
-              <label class="accordion-header" for="accordion-0">
+              <label class="accordion-header accordian-title" for="accordion-0">
                 <i class="icon icon-arrow-right mr-1" />
                 Description
               </label>
-              <div class="accordion-body">
+              <div class="accordion-body accordian-content">
                 <p>{activeProjectContent.description}</p>
               </div>
             </div>
@@ -259,11 +266,11 @@
                 id="accordion-1"
                 name="accordion-checkbox"
                 hidden />
-              <label class="accordion-header" for="accordion-1">
+              <label class="accordion-header accordian-title" for="accordion-1">
                 <i class="icon icon-arrow-right mr-1" />
                 My role
               </label>
-              <div class="accordion-body">
+              <div class="accordion-body accordian-content">
                 <!-- Accordions content -->
                 {activeProjectContent.myRole}
               </div>
@@ -274,11 +281,11 @@
                 id="accordion-2"
                 name="accordion-checkbox"
                 hidden />
-              <label class="accordion-header" for="accordion-2">
+              <label class="accordion-header accordian-title" for="accordion-2">
                 <i class="icon icon-arrow-right mr-1" />
                 Technologies used
               </label>
-              <div class="accordion-body">
+              <div class="accordion-body accordian-content">
                 <!-- <ul> -->
                 {#each activeProjectContent.techUsed as tech}
                   <span class="chip" style="text-decoration: none">{tech}</span>
@@ -292,11 +299,11 @@
                 id="accordion-3"
                 name="accordion-checkbox"
                 hidden />
-              <label class="accordion-header" for="accordion-3">
+              <label class="accordion-header accordian-title" for="accordion-3">
                 <i class="icon icon-arrow-right mr-1" />
                 Key learnings
               </label>
-              <div class="accordion-body">
+              <div class="accordion-body accordian-content">
                 <ul>
                   {#each activeProjectContent.learnings as learning}
                     <li>{learning}</li>
@@ -310,7 +317,7 @@
                 id="accordion-4"
                 name="accordion-checkbox"
                 hidden />
-              <label class="accordion-header" for="accordion-4">
+              <label class="accordion-header accordian-title" for="accordion-4">
                 <i class="icon icon-arrow-right mr-1" />
                 Notable features
               </label>
