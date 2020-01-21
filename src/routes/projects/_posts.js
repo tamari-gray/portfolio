@@ -9,7 +9,7 @@
 
 const posts = [
 	{
-		title: 'Cleaner homes and gardens website',
+		title: 'Cleaner homes and pastures website',
 		slug: 'cleaner-homes-website',
 		img: 'cleaner.png',
 		description: 'Website design and development for an agricultural spraying and house cleaning company.',
