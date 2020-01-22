@@ -145,9 +145,9 @@
     margin-top: 5vh;
   }
 
-  .projects-nav {
+  /* .projects-nav {
     margin-bottom: 5vh;
-  }
+  } */
 
   img {
     width: 350px;
@@ -163,7 +163,7 @@
     font-size: 1em;
   }
   .accordian-title {
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
 
   @media (max-width: 480px) {
@@ -226,17 +226,21 @@
         <div class=" projects-nav column col-12">
           <div class="columns">
             <div
-              class="column col-sm-6 col-4 heading"
-              style=" text-align:center">
+              class="column col-sm-6 col-4 col-ml-auto heading"
+              style=" text-align:center; font-weight:600; font-size:2.4em">
               My work
             </div>
             <div
-              class="column col-4 col-ml-auto heading"
+              class="column col-4 heading"
               style=" text-align:center; height: 50px">
-              <i
+              <!-- <i
                 class="icon icon-forward mr-1"
                 style="color:#585bd9"
-                on:click={handleProjectToggle} />
+                on:click={handleProjectToggle} /> -->
+              <button class="btn btn-link" on:click={handleProjectToggle}>
+                next
+                <i class="icon icon-forward" style="color:#585bd9" />
+              </button>
             </div>
           </div>
         </div>
@@ -247,17 +251,16 @@
             class="column col-xs-12 col-7 col-mx-auto"
             style="margin-top:5vh">
             <div class="columns">
-              <!-- <div style="max-height: 300px; overflow-y:scroll"> -->
+
+              <div class=" projects-title column col-12 col-mx-auto">
+                <h4 style="text-align:center; font-size:1.6em; font-weight:400">
+                  {activeProjectContent.title}
+                </h4>
+              </div>
               <img
                 class=" column col-12 col-mx-auto"
                 src={'/' + activeProjectContent.img}
                 alt="" />
-              <!-- </div> -->
-              <div class=" projects-title column col-12 col-mx-auto">
-                <h4 style="text-align:center; font-size:1.4em; font-weight:400">
-                  {activeProjectContent.title}
-                </h4>
-              </div>
               <div
                 style="display: flex; justify-content: center; margin-top: 2vh;"
                 class="column col-12 col-mx-auto">
