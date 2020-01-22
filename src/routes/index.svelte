@@ -26,7 +26,7 @@
 
   function initThreeJs() {
     var camera, scene, renderer;
-    var geometry, material, mesh;
+    var geometry, material, mesh,mesh2, mesh3, mesh4, sphere, sphereGeo, sphereMaterial, light1, light2, light3, light4
 
     init();
     animate();
@@ -38,17 +38,41 @@
         0.01,
         10
       );
-      camera.position.z = 1;
+      camera.position.z = 2.5;
 
       scene = new THREE.Scene();
 
       geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
       material = new THREE.MeshNormalMaterial();
-
       mesh = new THREE.Mesh(geometry, material);
-      scene.add(mesh);
+      mesh2 = new THREE.Mesh(geometry, material);
+      mesh3 = new THREE.Mesh(geometry, material);
+      mesh4 = new THREE.Mesh(geometry, material);
 
-      // mesh.position.y = 1
+      // sphereGeo = new THREE.SphereGeometry(0.2, 32, 32);
+      // sphereMaterial = new THREE.MeshNormalMaterial();
+      // sphere = new THREE.Mesh(sphereGeo, sphereMaterial);
+
+      var sphere = new THREE.SphereBufferGeometry( 0.05, 16, 8 );
+
+      light1 = new THREE.PointLight(0xff0040, 0.2, 50);
+      light1.add(
+        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
+      );
+      light2 = new THREE.PointLight(0xff0040, 0.2, 50);
+      light2.add(
+        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
+      );
+      light3 = new THREE.PointLight(0xff0040, 0.2, 50);
+      light3.add(
+        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
+      );
+      light4 = new THREE.PointLight(0xff0040, 0.2, 50);
+      light4.add(
+        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
+      );
+
+      scene.add(mesh, mesh2, mesh3, mesh4);
 
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -58,11 +82,44 @@
       document.querySelector(".scene").appendChild(renderer.domElement);
     }
 
+    window.onresize = function() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+
     function animate() {
       requestAnimationFrame(animate);
 
+      var time = Date.now() * 0.0005;
+
       mesh.rotation.x += 0.01;
       mesh.rotation.y += 0.02;
+      mesh2.rotation.x += 0.01;
+      mesh2.rotation.y += 0.02;
+      mesh3.rotation.x += 0.01;
+      mesh3.rotation.y += 0.02;
+      mesh4.rotation.x += 0.01;
+      mesh4.rotation.y += 0.02;
+
+      mesh.position.x = Math.sin(time * 0.3) * 1.5;
+      mesh.position.y = Math.cos(time * 0.6) * 1.2 ;
+      mesh.position.z = Math.cos( time * 0.9 ) * 0.8;
+
+      mesh2.position.x = Math.sin(time * 0.3) * -1.5;
+      mesh2.position.y = Math.cos(time * 0.6) * -1.2;
+      mesh2.position.z = Math.cos( time * 0.9 ) * -0.8;
+
+      mesh3.position.x = Math.sin(time * 0.3) * 1.5;
+      mesh3.position.y = Math.cos(time * 0.6) * -1.2 ;
+      mesh3.position.z = Math.cos( time * 0.9 ) * 0.8;
+
+
+      mesh4.position.x = Math.sin(time * 0.3) * -1.5;
+      mesh4.position.y = Math.cos(time * 0.6) * 1.2 ;
+      mesh4.position.z = Math.cos( time * 0.9 ) * -0.8;
+
 
       renderer.render(scene, camera);
     }
