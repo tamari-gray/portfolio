@@ -233,10 +233,6 @@
             <div
               class="column col-4 heading"
               style=" text-align:center; height: 50px">
-              <!-- <i
-                class="icon icon-forward mr-1"
-                style="color:#585bd9"
-                on:click={handleProjectToggle} /> -->
               <button class="btn btn-link" on:click={handleProjectToggle}>
                 next
                 <i class="icon icon-forward" style="color:#585bd9" />

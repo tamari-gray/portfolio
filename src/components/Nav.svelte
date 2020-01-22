@@ -4,6 +4,7 @@
   import MdEmail from "svelte-icons/md/MdEmail.svelte";
   import FaLinkedin from "svelte-icons/fa/FaLinkedin.svelte";
   import FaLinkedinIn from "svelte-icons/fa/FaLinkedinIn.svelte";
+  import FaEnvelope from "svelte-icons/fa/FaEnvelope.svelte";
 
   import * as animateScroll from "svelte-scrollto";
 
@@ -200,20 +201,20 @@
       <a class={segment === 'resume' ? 'selected' : ''} href=".">resume</a>
     </li>
     <li class="icons">
-      <a class="icon-navbar" href="https://github.com/tamari-gray">
-        <DiGithubBadge />
-      </a>
-    </li>
-    <li class="icons">
-      <a class="icon-navbar" href="https://github.com/tamari-gray">
-        <DiGithubBadge />
-      </a>
-    </li>
-    <li class="icons">
       <a
         class="icon-navbar"
         href="https://www.linkedin.com/in/tamari-gray-44128618a/">
         <FaLinkedin />
+      </a>
+    </li>
+    <li class="icons">
+      <a class="icon-navbar" href="mailto:tamarigray97@gmail.com" target="_blank" >
+        <FaEnvelope />
+      </a>
+    </li>
+    <li class="icons">
+      <a class="icon-navbar" href="https://github.com/tamari-gray">
+        <DiGithubBadge />
       </a>
     </li>
   </ul>
