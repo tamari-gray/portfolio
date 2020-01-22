@@ -103,22 +103,22 @@
       mesh4.rotation.x += 0.01;
       mesh4.rotation.y += 0.02;
 
-      mesh.position.x = Math.sin(time * 0.3) * 1.5;
-      mesh.position.y = Math.cos(time * 0.6) * 1.2 ;
-      mesh.position.z = Math.cos( time * 0.9 ) * 0.8;
+      mesh.position.x = Math.sin(time * 0.3) * 1.1;
+      mesh.position.y = Math.cos(time * 0.6) * 1.1 ;
+      mesh.position.z = Math.cos( time * 0.9 ) * 1.1;
 
-      mesh2.position.x = Math.sin(time * 0.3) * -1.5;
-      mesh2.position.y = Math.cos(time * 0.6) * -1.2;
-      mesh2.position.z = Math.cos( time * 0.9 ) * -0.8;
+      mesh2.position.x = Math.sin(time * 0.3) * -1.1;
+      mesh2.position.y = Math.cos(time * 0.6) * -1.1;
+      mesh2.position.z = Math.cos( time * 0.9 ) * -1.1;
 
-      mesh3.position.x = Math.sin(time * 0.3) * 1.5;
-      mesh3.position.y = Math.cos(time * 0.6) * -1.2 ;
-      mesh3.position.z = Math.cos( time * 0.9 ) * 0.8;
+      mesh3.position.x = Math.sin(time * 0.3) * 1.1;
+      mesh3.position.y = Math.cos(time * 0.6) * -1.1 ;
+      mesh3.position.z = Math.cos( time * 0.9 ) * 1.1;
 
 
-      mesh4.position.x = Math.sin(time * 0.3) * -1.5;
-      mesh4.position.y = Math.cos(time * 0.6) * 1.2 ;
-      mesh4.position.z = Math.cos( time * 0.9 ) * -0.8;
+      mesh4.position.x = Math.sin(time * 0.3) * -1.1;
+      mesh4.position.y = Math.cos(time * 0.6) * 1.1 ;
+      mesh4.position.z = Math.cos( time * 0.9 ) * -1.1;
 
 
       renderer.render(scene, camera);
