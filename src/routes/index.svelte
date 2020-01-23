@@ -188,10 +188,6 @@
     height: 100%;
   }
 
-  .heading {
-    font-size: 2.4em;
-  }
-
   h1 {
     font-size: 2.8em;
     font-weight: 700;
@@ -213,10 +209,12 @@
     z-index: 2;
   }
 
-  .project-comp {
-    background: #ffffff;
-    border: 0.15rem solid #585bd9;
+  .content-component {
+    background: #000000f0;
+    border: 0.15rem solid #fff;
     border-radius: 15px;
+    color: white;
+    min-height: 65vh;
   }
 
   img {
@@ -254,9 +252,17 @@
   }
 
   #about-section {
-    margin-top: 5vh;
+    margin-top: 15vh;
     position: relative;
     z-index: 2;
+  }
+
+  .chipette {
+    background-color: #585bd9;
+  }
+  .outline {
+    text-shadow: -1.5px -1.5px 0 #000, 0 -1.5px 0 #000, 1.5px -1.5px 0 #000, 1.5px 0 0 #000,
+      1.5px 1.5px 0 #000, 0 1.5px 0 #000, -1.5px 1.5px 0 #000, -1.5px 0 0 #000;
   }
 </style>
 
@@ -272,7 +278,7 @@
     <!-- hero section -->
     <div class="column col-12" style="height:91.5vh">
       <div class="hero">
-        <h1>
+        <h1 class="outline">
           A
           <span>full stack</span>
           developer
@@ -297,6 +303,7 @@
           <div class="columns">
             <div class="column col-12 col-mx-auto ">
               <h1
+                class="outline"
                 style=" text-align:center; font-weight:700; font-size:3em;
                 color:white ">
                 My work
@@ -305,20 +312,21 @@
           </div>
         </div>
       </div>
-      <div class="project-comp column col-10 col-mx-auto">
-        <div class="columns" style="min-height:60vh">
-          <div class="column col-12 col-mx-auto" style="margin-top:5vh">
+      <div class="content-component column col-10 col-mx-auto">
+        <div class="columns">
+          <div
+            class="column col-12 col-mx-auto"
+            style="margin-top:5vh; margin-bottom:5vh">
             <div class="columns">
               <div class=" projects-title column col-9 col-xs-12 col-mx-auto">
-                <h4 style="text-align:center; font-size:1.6em; font-weight:500">
+                <h4 style="text-align:center; font-size:1.8em; font-weight:500">
                   {activeProjectContent.title}
                 </h4>
               </div>
-              <div
-                class="column col-3 col-xs-12"
-                style=" text-align:center;">
+              <div class="column col-3 col-xs-12" style=" text-align:center;">
                 <button
                   class="btn "
+                  style="background-color:#000;"
                   on:click={handleProjectToggle}>
                   next project
                   <i class="icon icon-forward icon-small" />
@@ -326,7 +334,7 @@
               </div>
             </div>
           </div>
-          <div class="column col-xs-12 col-6 col-mx-auto project-block">
+          <div class="column col-xs-12 col-6 col-mx-auto ">
             <div class="columns">
               <img
                 class=" column col-12 col-mx-auto"
@@ -383,7 +391,9 @@
               <div class="accordion-body accordian-content">
                 <!-- <ul> -->
                 {#each activeProjectContent.techUsed as tech}
-                  <span class="chip" style="text-decoration: none">{tech}</span>
+                  <span class="chip chipette" style="text-decoration: none">
+                    {tech}
+                  </span>
                 {/each}
                 <!-- </ul> -->
               </div>
@@ -429,29 +439,19 @@
       </div>
     </div>
     <!-- about section -->
-    <div class="divider" />
-    <div id="about-section" class="column col-12 about full-height">
-      <div class="about columns">
-        <div class=" projects-nav column col-12">
-          <div class="columns">
-            <div
-              class="column col-sm-6 col-4 heading"
-              style=" text-align:center">
-              About me
-            </div>
-            <div
-              class="column col-4 col-ml-auto heading"
-              style=" text-align:center; height: 50px">
-              <a href="mailto:tamarigray97@gmail.com" target="_blank">
-                <button class="btn">
-                  <i style="margin-left:5px" class="icon icon-arrow-right" />
-                  Get in touch
-                </button>
-              </a>
-            </div>
-          </div>
+    <div id="about-section" class="column col-12 about" style="">
+      <div class="columns">
+        <div class="about-title col-12">
+          <h1
+            class="outline"
+            style=" text-align:center; font-weight:700; font-size:3em;
+            color:white ">
+            About me
+          </h1>
         </div>
-        <div class="column col-xs-10 col-8 col-mx-auto">description</div>
+        <div class="col-xs-8 col-6 col-mx-auto">
+          <p style="color:white;" class="outline">about me sdjfndsbgjlndsl</p>
+        </div>
       </div>
     </div>
   </div>
