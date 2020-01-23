@@ -52,8 +52,8 @@ const posts = [
 			"THERES ALWAYS A SOLTION. sometimes it took me days or over a week but i always found a solution. never give up.",
 			"removing yourself from the workstation regularly can be very beneficial. I spent alot of time trying to figure out problems when the solution was staring me in the face. I just needed a clear mind to see it."
 		], 
-		codeLink: "https://sonar-app.sonar-test.now.sh",
-		liveLink: "https://github.com/tamari-gray/Sonar-app"
+		codeLink: "https://github.com/tamari-gray/Sonar-app",
+		liveLink: "https://sonar-app.sonar-test.now.sh"
 	}
 ];
 
