@@ -89,6 +89,8 @@
     text-decoration: none;
     padding: 1em 0.5em;
     display: block;
+    text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000, 1px 0 0 #000,
+      1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000;
   }
 
   .icons {
@@ -136,6 +138,8 @@
     display: flex;
     justify-content: center;
   }
+
+
 </style>
 
 <div class="overlay" class:show={showOverlay === true}>

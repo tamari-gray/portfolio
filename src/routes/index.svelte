@@ -318,12 +318,12 @@
             class="column col-12 col-mx-auto"
             style="margin-top:5vh; margin-bottom:5vh">
             <div class="columns">
-              <div class=" projects-title column col-9 col-xs-12 col-mx-auto">
+              <div class=" projects-title column col-8 col-xs-12 col-mx-auto">
                 <h4 style="text-align:center; font-size:1.8em; font-weight:500">
                   {activeProjectContent.title}
                 </h4>
               </div>
-              <div class="column col-3 col-xs-12" style=" text-align:center;">
+              <div class="column col-4 col-xs-12" style=" text-align:center;">
                 <button
                   class="btn "
                   style="background-color:#000;"
