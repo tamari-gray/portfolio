@@ -26,7 +26,19 @@
 
   function initThreeJs() {
     var camera, scene, renderer;
-    var geometry, material, mesh,mesh2, mesh3, mesh4, sphere, sphereGeo, sphereMaterial, light1, light2, light3, light4
+    var geometry,
+      material,
+      mesh,
+      mesh2,
+      mesh3,
+      mesh4,
+      sphere,
+      sphereGeo,
+      sphereMaterial,
+      light1,
+      light2,
+      light3,
+      light4;
 
     init();
     animate();
@@ -53,7 +65,7 @@
       // sphereMaterial = new THREE.MeshNormalMaterial();
       // sphere = new THREE.Mesh(sphereGeo, sphereMaterial);
 
-      var sphere = new THREE.SphereBufferGeometry( 0.05, 16, 8 );
+      var sphere = new THREE.SphereBufferGeometry(0.05, 16, 8);
 
       light1 = new THREE.PointLight(0xff0040, 0.2, 50);
       light1.add(
@@ -104,22 +116,20 @@
       mesh4.rotation.y += 0.02;
 
       mesh.position.x = Math.sin(time * 0.3) * 1.1;
-      mesh.position.y = Math.cos(time * 0.6) * 1.1 ;
-      mesh.position.z = Math.cos( time * 0.9 ) * 1.1;
+      mesh.position.y = Math.cos(time * 0.6) * 1.1;
+      mesh.position.z = Math.cos(time * 0.9) * 1.1;
 
       mesh2.position.x = Math.sin(time * 0.3) * -1.1;
       mesh2.position.y = Math.cos(time * 0.6) * -1.1;
-      mesh2.position.z = Math.cos( time * 0.9 ) * -1.1;
+      mesh2.position.z = Math.cos(time * 0.9) * -1.1;
 
       mesh3.position.x = Math.sin(time * 0.3) * 1.1;
-      mesh3.position.y = Math.cos(time * 0.6) * -1.1 ;
-      mesh3.position.z = Math.cos( time * 0.9 ) * 1.1;
-
+      mesh3.position.y = Math.cos(time * 0.6) * -1.1;
+      mesh3.position.z = Math.cos(time * 0.9) * 1.1;
 
       mesh4.position.x = Math.sin(time * 0.3) * -1.1;
-      mesh4.position.y = Math.cos(time * 0.6) * 1.1 ;
-      mesh4.position.z = Math.cos( time * 0.9 ) * -1.1;
-
+      mesh4.position.y = Math.cos(time * 0.6) * 1.1;
+      mesh4.position.z = Math.cos(time * 0.9) * -1.1;
 
       renderer.render(scene, camera);
     }
@@ -150,7 +160,7 @@
 
 <style>
   .scene {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     left: 50%;
     top: 50%;
@@ -199,12 +209,15 @@
   }
 
   #projects-section {
-    margin-top: 5vh;
+    position: relative;
+    z-index: 2;
   }
 
-  /* .projects-nav {
-    margin-bottom: 5vh;
-  } */
+  .project-comp {
+    background: #ffffff;
+    border: 0.15rem solid #585bd9;
+    border-radius: 15px;
+  }
 
   img {
     width: 350px;
@@ -215,35 +228,35 @@
     width: 40vw;
     margin: auto;
   }
+
+  .accordian-title:hover {
+    color: #585bd9;
+    cursor: pointer;
+  }
+
   .accordian-content {
-    margin-left: 2em;
+    margin-left: 2.25em;
+    margin-right: 1em;
     font-size: 1em;
   }
   .accordian-title {
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 500;
   }
 
   @media (max-width: 480px) {
     .accordian-tam {
       width: 80vw;
     }
+    .project-block {
+      margin-top: 5vh;
+    }
   }
 
   #about-section {
     margin-top: 5vh;
-  }
-
-  .get-in-touch {
-    margin-top: 7.1vh;
-    /* height: 25vh; */
-    color: white;
-  }
-  .test {
-    text-align: center;
-    margin: auto;
-    width: 80vw;
-    height: 1pt;
-    background-color: #5a6175;
+    position: relative;
+    z-index: 2;
   }
 </style>
 
@@ -282,34 +295,39 @@
       <div class="projects columns">
         <div class=" projects-nav column col-12">
           <div class="columns">
-            <div
-              class="column col-sm-6 col-4 col-ml-auto heading"
-              style=" text-align:center; font-weight:600; font-size:2.4em">
-              My work
-            </div>
-            <div
-              class="column col-4 heading"
-              style=" text-align:center; height: 50px">
-              <button class="btn btn-link" on:click={handleProjectToggle}>
-                next
-                <i class="icon icon-forward" style="color:#585bd9" />
-              </button>
+            <div class="column col-12 col-mx-auto ">
+              <h1
+                style=" text-align:center; font-weight:700; font-size:3em;
+                color:white ">
+                My work
+              </h1>
             </div>
           </div>
         </div>
       </div>
-      <div class="project-comp column col-12">
-        <div class="columns">
-          <div
-            class="column col-xs-12 col-7 col-mx-auto"
-            style="margin-top:5vh">
+      <div class="project-comp column col-10 col-mx-auto">
+        <div class="columns" style="min-height:60vh">
+          <div class="column col-12 col-mx-auto" style="margin-top:5vh">
             <div class="columns">
-
-              <div class=" projects-title column col-12 col-mx-auto">
-                <h4 style="text-align:center; font-size:1.6em; font-weight:400">
+              <div class=" projects-title column col-9 col-xs-12 col-mx-auto">
+                <h4 style="text-align:center; font-size:1.6em; font-weight:500">
                   {activeProjectContent.title}
                 </h4>
               </div>
+              <div
+                class="column col-3 col-xs-12"
+                style=" text-align:center;">
+                <button
+                  class="btn "
+                  on:click={handleProjectToggle}>
+                  next project
+                  <i class="icon icon-forward icon-small" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="column col-xs-12 col-6 col-mx-auto project-block">
+            <div class="columns">
               <img
                 class=" column col-12 col-mx-auto"
                 src={'/' + activeProjectContent.img}
@@ -318,13 +336,11 @@
                 style="display: flex; justify-content: center; margin-top: 2vh;"
                 class="column col-12 col-mx-auto">
                 <button class="btn btn-primary" href=".">View code</button>
-                <button class="btn" href=".">live version</button>
+                <button class="btn btn-link" href=".">live version</button>
               </div>
             </div>
           </div>
-          <div
-            class="column col-xs-12 col-5 col-mx-auto"
-            style="margin-top:5vh">
+          <div class="column col-xs-12 col-6 col-mx-auto project-block">
             <div class="accordion accordian-tam">
               <input
                 type="checkbox"
@@ -412,11 +428,6 @@
         </div>
       </div>
     </div>
-    <!-- get in touch section -->
-    <div class="column col-12 get-in-touch">
-      <!-- <h1>how can I be of service?</h1> -->
-      <div class="test" />
-    </div>
     <!-- about section -->
     <div class="divider" />
     <div id="about-section" class="column col-12 about full-height">
@@ -433,7 +444,7 @@
               style=" text-align:center; height: 50px">
               <a href="mailto:tamarigray97@gmail.com" target="_blank">
                 <button class="btn">
-                  <i class="icon icon-arrow-right" />
+                  <i style="margin-left:5px" class="icon icon-arrow-right" />
                   Get in touch
                 </button>
               </a>
