@@ -16,11 +16,11 @@
   }
 
   function handleScrollToFromOverlay(element) {
-    handleOverlayToggle()
+    handleOverlayToggle();
     animateScroll.scrollTo({
-            element: '#' + element,
-            duration: 1000
-          })
+      element: "#" + element,
+      duration: 1000
+    });
   }
 </script>
 
@@ -91,11 +91,13 @@
     display: block;
     text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000, 1px 0 0 #000,
       1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000;
+    font-size: 1em;
+    color: #4b48d6;
   }
 
-  .nav-hover:hover{
+  .nav-hover:hover {
     border-bottom: #4b48d6;
-    padding-bottom:3px;
+    padding-bottom: 3px;
   }
 
   .icons {
@@ -123,7 +125,7 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    margin-top:5vh;
+    margin-top: 5vh;
     align-content: center;
   }
   #burger-nav-exit {
@@ -143,8 +145,6 @@
     display: flex;
     justify-content: center;
   }
-
-
 </style>
 
 <div class="overlay" class:show={showOverlay === true}>
@@ -155,8 +155,12 @@
   <div class="overlay-content">
 
     <h1>Tamari gray</h1>
-    <a href="." on:click={() => handleScrollToFromOverlay("projects-section")}>My work</a>
-    <a href="." on:click={() => handleScrollToFromOverlay("about-section")} >About me</a>
+    <a href="." on:click={() => handleScrollToFromOverlay('projects-section')}>
+      My work
+    </a>
+    <a href="." on:click={() => handleScrollToFromOverlay('about-section')}>
+      About me
+    </a>
     <a href="mailto:tamarigray97@gmail.com">Contact me</a>
     <a href=".">My resume</a>
     <div class="overlay-icons">
@@ -179,9 +183,7 @@
 <nav id="full-nav">
   <ul style="text-decoration:none">
     <li>
-      <a class=" nav-hover " href=".">
-        Tamari Gray
-      </a>
+      <a class=" nav-hover " href=".">Tamari Gray</a>
     </li>
     <li>
       <a
@@ -207,22 +209,34 @@
       </a>
     </li>
     <li>
-      <a class={segment === 'resume' ? 'selected' : ''} href="/resume">resume</a>
+      <a
+        class={segment === 'resume' ? 'selected' : ''}
+        href="https://drive.google.com/file/d/1vOPgsS8N7pr3jS-mL8S5EEcj7nrhijQA/view?usp=sharing"
+        target="_blank">
+        resume
+      </a>
     </li>
     <li class="icons">
       <a
         class="icon-navbar"
-        href="https://www.linkedin.com/in/tamari-gray-44128618a/">
+        href="https://www.linkedin.com/in/tamari-gray-44128618a/"
+        target="_blank">
         <FaLinkedin />
       </a>
     </li>
     <li class="icons">
-      <a class="icon-navbar" href="mailto:tamarigray97@gmail.com" target="_blank" >
+      <a
+        class="icon-navbar"
+        href="mailto:tamarigray97@gmail.com"
+        target="_blank">
         <FaEnvelope />
       </a>
     </li>
     <li class="icons">
-      <a class="icon-navbar" href="https://github.com/tamari-gray">
+      <a
+        class="icon-navbar"
+        href="https://github.com/tamari-gray"
+        target="_blank">
         <DiGithubBadge />
       </a>
     </li>

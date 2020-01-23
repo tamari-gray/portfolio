@@ -10,6 +10,8 @@ const contents = JSON.stringify(posts.map(post => {
 		techUsed: post.techUsed,
 		features: post.features,
 		learnings: post.learnings,
+		codeLink: post.codeLink,
+		liveLink: post.liveLink
 	};
 }));
 
