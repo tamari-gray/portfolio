@@ -70,7 +70,7 @@
     float: left;
   }
 
-  .selected {
+  /* .selected {
     position: relative;
     display: inline-block;
   }
@@ -80,10 +80,10 @@
     content: "";
     width: calc(100% - 1em);
     height: 2px;
-    background-color: rgb(255, 62, 0);
+    background-color: #4b48d6;
     display: block;
     bottom: -1px;
-  }
+  } */
 
   a {
     text-decoration: none;
@@ -91,6 +91,11 @@
     display: block;
     text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000, 1px 0 0 #000,
       1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000;
+  }
+
+  .nav-hover:hover{
+    border-bottom: #4b48d6;
+    padding-bottom:3px;
   }
 
   .icons {
@@ -174,7 +179,7 @@
 <nav id="full-nav">
   <ul style="text-decoration:none">
     <li>
-      <a class={segment === undefined ? 'selected' : ''} href=".">
+      <a class=" nav-hover " href=".">
         Tamari Gray
       </a>
     </li>
@@ -185,14 +190,14 @@
             element: '#projects-section',
             duration: 1000
           })}
-        class={segment === 'projects' ? 'selected' : ''}
+        class=" nav-hover"
         href=".">
         my work
       </a>
     </li>
     <li>
       <a
-        class={segment === 'about' ? 'selected' : ''}
+        class="nav-hover"
         on:click={() => animateScroll.scrollTo({
             element: '#about-section',
             duration: 1000
@@ -202,7 +207,7 @@
       </a>
     </li>
     <li>
-      <a class={segment === 'resume' ? 'selected' : ''} href=".">resume</a>
+      <a class={segment === 'resume' ? 'selected' : ''} href="/resume">resume</a>
     </li>
     <li class="icons">
       <a

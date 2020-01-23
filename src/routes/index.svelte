@@ -171,7 +171,7 @@
 
   .hero {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
@@ -211,10 +211,22 @@
 
   .content-component {
     background: #000000f0;
-    border: 0.15rem solid #fff;
+    border: 0.15rem solid #585bd9;
     border-radius: 15px;
     color: white;
     min-height: 65vh;
+  }
+
+  .footer {
+    background: #000000f0;
+    border-top: 0.15rem solid #585bd9;
+    color: white;
+    min-height: 20vh;
+    position: relative;
+    z-index: 2;
+    color: antiquewhite;
+    text-align:center;
+    margin-top: 8vh;
   }
 
   img {
@@ -252,7 +264,7 @@
   }
 
   #about-section {
-    margin-top: 15vh;
+    margin-top: 20vh;
     position: relative;
     z-index: 2;
   }
@@ -261,8 +273,14 @@
     background-color: #585bd9;
   }
   .outline {
-    text-shadow: -1.5px -1.5px 0 #000, 0 -1.5px 0 #000, 1.5px -1.5px 0 #000, 1.5px 0 0 #000,
-      1.5px 1.5px 0 #000, 0 1.5px 0 #000, -1.5px 1.5px 0 #000, -1.5px 0 0 #000;
+    text-shadow: -0.5px -0.5px 0 #585bd9, 0 -0.5px 0 #585bd9, 0.5px -0.5px 0 #585bd9,
+      0.5px 0 0 #585bd9, 0.5px 0.5px 0 #585bd9, 0 0.5px 0 #585bd9, -0.5px 0.5px 0 #585bd9,
+      -0.5px 0 0 #585bd9;
+  }
+  .outline-black {
+    text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000,
+      1px 0 0 #000, 1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000,
+      -1px 0 0 #000;
   }
 </style>
 
@@ -276,12 +294,12 @@
 <div class="container">
   <div class="columns" style="min-width:100vw">
     <!-- hero section -->
-    <div class="column col-12" style="height:91.5vh">
+    <!-- <div class="column col-12" style="height:91.5vh">
       <div class="hero">
-        <h1 class="outline">
-          A
+        <h1 class="outline-black">
+          I'm a <br>
           <span>full stack</span>
-          developer
+          dev
         </h1>
         <div style="display:flex">
           <button
@@ -295,6 +313,26 @@
           <button class="btn" href=".">contact me</button>
         </div>
       </div>
+    </div> -->
+    <div class="column col-12" style="height:91.5vh">
+      <div class="hero">
+        <h1 class="outline-black">
+          I'm a <br>
+          <span>full stack</span>
+          dev
+        </h1>
+        <div style="text-align:center">
+          <button
+            class="btn btn-primary"
+            on:click={() => animateScroll.scrollTo({
+                element: '#projects-section',
+                duration: 1000
+              })}>
+            View my work
+          </button>
+          <button class="btn" href=".">Contact me</button>
+        </div>
+      </div>
     </div>
     <!-- projects section -->
     <div id="projects-section" class="column col-12 full-height">
@@ -303,7 +341,7 @@
           <div class="columns">
             <div class="column col-12 col-mx-auto ">
               <h1
-                class="outline"
+                class="outline-black"
                 style=" text-align:center; font-weight:700; font-size:3em;
                 color:white ">
                 My work
@@ -319,7 +357,7 @@
             style="margin-top:5vh; margin-bottom:5vh">
             <div class="columns">
               <div class=" projects-title column col-8 col-xs-12 col-mx-auto">
-                <h4 style="text-align:center; font-size:1.8em; font-weight:500">
+                <h4 class="outline-black" style="text-align:center; font-size:1.8em; font-weight:500">
                   {activeProjectContent.title}
                 </h4>
               </div>
@@ -441,16 +479,31 @@
     <!-- about section -->
     <div id="about-section" class="column col-12 about" style="">
       <div class="columns">
-        <div class="about-title col-12">
+        <div class="column about-title col-12">
           <h1
-            class="outline"
+            class="outline-black"
             style=" text-align:center; font-weight:700; font-size:3em;
             color:white ">
             About me
           </h1>
         </div>
-        <div class="col-xs-8 col-6 col-mx-auto">
-          <p style="color:white;" class="outline">about me sdjfndsbgjlndsl</p>
+        <div class="column col-xs-8 col-6 col-mx-auto">
+          <p style="color:white;" class="outline-black">about me sdjfndsbgjlndsl</p>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <div class="column col-12 col-mx-auto footer">
+      <div class="columns" style="margin-top: 8vh">
+        <div class="column col-6">
+          <h4 class="outline" style="margin:none">Tamari gray</h4>
+          <p>full stack software developer</p>
+        </div>
+        <div class="column col-2" style="text-align: left">
+          <button class="btn btn-primary ">Get in touch</button>
+        </div>
+        <div class="column col-2" style="text-align: left">
+          <button class="btn">View resume</button>
         </div>
       </div>
     </div>
