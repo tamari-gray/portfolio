@@ -14,5 +14,3 @@
 <main>
   <slot />
 </main>
-
-<!-- <Footer/> -->
