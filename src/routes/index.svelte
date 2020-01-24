@@ -274,13 +274,18 @@
     background-color: #585bd9;
   }
   .outline {
-    text-shadow: -0.5px -0.5px 0 #585bd9, 0 -0.5px 0 #585bd9,
-      0.5px -0.5px 0 #585bd9, 0.5px 0 0 #585bd9, 0.5px 0.5px 0 #585bd9,
-      0 0.5px 0 #585bd9, -0.5px 0.5px 0 #585bd9, -0.5px 0 0 #585bd9;
+    text-shadow: -0.3px -0.3px 0 #585bd9, 0 -0.3px 0 #585bd9,
+      0.3px -0.3px 0 #585bd9, 0.3px 0 0 #585bd9, 0.3px 0.3px 0 #585bd9,
+      0 0.3px 0 #585bd9, -0.3px 0.3px 0 #585bd9, -0.3px 0 0 #585bd9;
   }
   .outline-black {
     text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000, 1px 0 0 #000,
       1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000;
+  }
+
+  .special {
+    text-decoration:none;
+    font-weight:700;
   }
 </style>
 
@@ -476,9 +481,21 @@
             About me
           </h1>
         </div>
-        <div class="column col-xs-8 col-6 col-mx-auto">
-          <p style="color:white;" class="outline-black">
-            about me sdjfndsbgjlndsl
+        <div
+          class="column col-xs-10 col-7 col-mx-auto"
+          style="background: #000000f0;border-radius:15px;">
+          <p style="color:white;margin:1em" class="outline-black">
+            Im a driven dev that wants to fully understand the product
+            development lifecycle. Ive studied and self-taught myself enough to
+            build creative products with the latest tech stacks. I hope that
+            with the skills I have gathered from these endeavours, I can learn
+            from and
+            <span class="special outline">provide</span>
+            real
+            <span class="special outline">value</span>
+            <span class="special outline">to</span>
+            <span class="special outline">you</span>r
+            company.
           </p>
         </div>
       </div>
