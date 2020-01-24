@@ -45,6 +45,7 @@ const posts = [
 			"Realtime geolocation",
 			"Online multiplayer functionality",
 			"User authentication",
+			"User sessions",
 			"Effective source control management"
 		],
 		learnings: [
