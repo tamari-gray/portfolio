@@ -2,23 +2,22 @@
   "bundler": "rollup",
   "shimport": "1.0.1",
   "assets": {
-    "main": "client.711896e2.js"
+    "main": "client.afc68bfc.js"
   },
   "css": {
-    "main": "main.3457374011.css",
+    "main": "main.4294929684.css",
     "chunks": {
       "index.svelte": [
-        "index.42bab6fe.css"
+        "index.b6f9466e.css",
+        "index.97631cec.css"
+      ],
+      "projects/index.svelte": [],
+      "projects/[slug].svelte": [
+        "[slug].c84eb234.css"
       ],
       "contact.svelte": [],
       "resume.svelte": [],
-      "about.svelte": [],
-      "blog/index.svelte": [
-        "index.5e185acc.css"
-      ],
-      "blog/[slug].svelte": [
-        "[slug].effbf705.css"
-      ]
+      "about.svelte": []
     }
   }
 }
