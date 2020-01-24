@@ -6,7 +6,7 @@ import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-import postcss from 'rollup-plugin-postcss'
+// import postcss from 'rollup-plugin-postcss'
 import autoPreprocess from 'svelte-preprocess'
 
 const preprocessOptions = {
@@ -15,12 +15,12 @@ const preprocessOptions = {
       'node_modules',
       'src'
     ]
-  },
-  postcss: {
-    plugins: [
-      require('autoprefixer'),
-    ]
-  }
+	},
+  // postcss: {
+  //   plugins: [
+  //     require('autoprefixer'),
+  //   ]
+  // }
 }
 
 const mode = process.env.NODE_ENV;
