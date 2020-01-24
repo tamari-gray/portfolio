@@ -140,8 +140,6 @@
 
   $: activeProjectContent = posts[activeProject];
 
-  $: console.log(activeProject, activeProjectContent.liveLink);
-
   function handleProjectToggle() {
     const length = posts.length - 1;
 
@@ -153,7 +151,6 @@
   // navbar
   let y = 0;
   $: if (y >= 500) {
-    // console.log(y);
     document.getElementById("burger-nav").style.color = "585bd9";
   }
 </script>

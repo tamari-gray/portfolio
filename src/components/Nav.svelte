@@ -12,7 +12,6 @@
 
   function handleOverlayToggle() {
     showOverlay = !showOverlay;
-    console.log("toggling", showOverlay);
   }
 
   function handleScrollToFromOverlay(element) {
