@@ -341,9 +341,7 @@
                 </h4>
               </div>
               <div class="column col-6 col-xs-12" style=" text-align:center;">
-                <button
-                  class="btn btn-primary"
-                  on:click={handleProjectToggle}>
+                <button class="btn btn-primary" on:click={handleProjectToggle}>
                   next project
                   <i class="icon icon-forward icon-small" />
                 </button>
@@ -360,7 +358,7 @@
                 style="display: flex; justify-content: center; margin-top: 2vh;"
                 class="column col-12 col-mx-auto">
                 <a href={activeProjectContent.codeLink} target="_blank">
-                  <button class="btn btn-primary" >View code</button>
+                  <button class="btn btn-primary">View code</button>
                 </a>
                 <a href={activeProjectContent.liveLink} target="_blank">
                   <button class="btn btn-link">live version</button>
@@ -472,7 +470,9 @@
         <div
           class="column col-xs-10 col-7 col-mx-auto"
           style="background: #000000f0;border-radius:15px;">
-          <p style="color:white;margin:1em" class="outline-black">
+          <p
+            style="color:white;margin:1em; font-size:1.2em"
+            class="outline-black">
             Im a driven dev that wants to fully understand the product
             development lifecycle. Ive studied and self-taught myself enough to
             build creative products with the latest tech stacks. I hope that
