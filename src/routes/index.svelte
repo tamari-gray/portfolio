@@ -26,7 +26,7 @@
 
   function initThreeJs() {
     var camera, scene, renderer;
-    var geometry,
+    var boxGeometry,
       material,
       mesh,
       mesh2,
@@ -38,7 +38,11 @@
       light1,
       light2,
       light3,
-      light4;
+      light4,
+      geometry,
+      line,
+      wireframe,
+      test;
 
     init();
     animate();
@@ -54,35 +58,24 @@
 
       scene = new THREE.Scene();
 
-      geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+      // geometry = new THREE.SphereBufferGeometry(0.1, 0.1, 0.1);
+      boxGeometry = new THREE.BoxGeometry(0.05, 0.05, 0.05);
+
+
+      // wireframe = new THREE.WireframeGeometry(boxGeometry);
+
+      // line = new THREE.LineSegments(wireframe);
+      // line.material.depthTest = false;
+      // line.material.opacity = 0.25;
+      // line.material.transparent = true;
+
       material = new THREE.MeshNormalMaterial();
-      mesh = new THREE.Mesh(geometry, material);
-      mesh2 = new THREE.Mesh(geometry, material);
-      mesh3 = new THREE.Mesh(geometry, material);
-      mesh4 = new THREE.Mesh(geometry, material);
-
-      // sphereGeo = new THREE.SphereGeometry(0.2, 32, 32);
-      // sphereMaterial = new THREE.MeshNormalMaterial();
-      // sphere = new THREE.Mesh(sphereGeo, sphereMaterial);
-
-      var sphere = new THREE.SphereBufferGeometry(0.05, 16, 8);
-
-      light1 = new THREE.PointLight(0xff0040, 0.2, 50);
-      light1.add(
-        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
-      );
-      light2 = new THREE.PointLight(0xff0040, 0.2, 50);
-      light2.add(
-        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
-      );
-      light3 = new THREE.PointLight(0xff0040, 0.2, 50);
-      light3.add(
-        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
-      );
-      light4 = new THREE.PointLight(0xff0040, 0.2, 50);
-      light4.add(
-        new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0x807efa }))
-      );
+      material.opacity = 0.5;
+      mesh = new THREE.Mesh( boxGeometry, material ); 
+      mesh2 = new THREE.Mesh( boxGeometry, material ); 
+      mesh3 = new THREE.Mesh( boxGeometry, material ); 
+      mesh4 = new THREE.Mesh( boxGeometry, material ); 
+      // meshWireframe = new THREE.LineSegments(wireframe);
 
       scene.add(mesh, mesh2, mesh3, mesh4);
 
@@ -281,8 +274,8 @@
   }
 
   .special {
-    text-decoration:none;
-    font-weight:700;
+    text-decoration: none;
+    font-weight: 700;
   }
 </style>
 
@@ -491,8 +484,8 @@
             real
             <span class="special outline">value</span>
             <span class="special outline">to</span>
-            <span class="special outline">you</span>r
-            company.
+            <span class="special outline">you</span>
+            r company.
           </p>
         </div>
       </div>
