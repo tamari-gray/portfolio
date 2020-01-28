@@ -61,7 +61,6 @@
       // geometry = new THREE.SphereBufferGeometry(0.1, 0.1, 0.1);
       boxGeometry = new THREE.BoxGeometry(0.05, 0.05, 0.05);
 
-
       // wireframe = new THREE.WireframeGeometry(boxGeometry);
 
       // line = new THREE.LineSegments(wireframe);
@@ -71,10 +70,10 @@
 
       material = new THREE.MeshNormalMaterial();
       material.opacity = 0.5;
-      mesh = new THREE.Mesh( boxGeometry, material ); 
-      mesh2 = new THREE.Mesh( boxGeometry, material ); 
-      mesh3 = new THREE.Mesh( boxGeometry, material ); 
-      mesh4 = new THREE.Mesh( boxGeometry, material ); 
+      mesh = new THREE.Mesh(boxGeometry, material);
+      mesh2 = new THREE.Mesh(boxGeometry, material);
+      mesh3 = new THREE.Mesh(boxGeometry, material);
+      mesh4 = new THREE.Mesh(boxGeometry, material);
       // meshWireframe = new THREE.LineSegments(wireframe);
 
       scene.add(mesh, mesh2, mesh3, mesh4);
@@ -334,17 +333,16 @@
             class="column col-12 col-mx-auto"
             style="margin-top:5vh; margin-bottom:5vh">
             <div class="columns">
-              <div class=" projects-title column col-8 col-xs-12 col-mx-auto">
+              <div class=" projects-title column col-6 col-xs-12 col-mx-auto">
                 <h4
                   class="outline-black"
                   style="text-align:center; font-size:1.8em; font-weight:500">
                   {activeProjectContent.title}
                 </h4>
               </div>
-              <div class="column col-4 col-xs-12" style=" text-align:center;">
+              <div class="column col-6 col-xs-12" style=" text-align:center;">
                 <button
-                  class="btn "
-                  style="background-color:#000;"
+                  class="btn btn-primary"
                   on:click={handleProjectToggle}>
                   next project
                   <i class="icon icon-forward icon-small" />
@@ -362,7 +360,7 @@
                 style="display: flex; justify-content: center; margin-top: 2vh;"
                 class="column col-12 col-mx-auto">
                 <a href={activeProjectContent.codeLink} target="_blank">
-                  <button class="btn btn-primary">View code</button>
+                  <button class="btn btn-primary" >View code</button>
                 </a>
                 <a href={activeProjectContent.liveLink} target="_blank">
                   <button class="btn btn-link">live version</button>
