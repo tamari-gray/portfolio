@@ -24,6 +24,9 @@
     initThreeJs();
   });
 
+  // scroll
+  let y = 0;
+
   function initThreeJs() {
     var camera, scene, renderer;
     var boxGeometry,
@@ -58,30 +61,19 @@
 
       scene = new THREE.Scene();
 
-      // geometry = new THREE.SphereBufferGeometry(0.1, 0.1, 0.1);
-      boxGeometry = new THREE.BoxGeometry(0.05, 0.05, 0.05);
-
-      // wireframe = new THREE.WireframeGeometry(boxGeometry);
-
-      // line = new THREE.LineSegments(wireframe);
-      // line.material.depthTest = false;
-      // line.material.opacity = 0.25;
-      // line.material.transparent = true;
-
+      boxGeometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
       material = new THREE.MeshNormalMaterial();
       material.opacity = 0.5;
       mesh = new THREE.Mesh(boxGeometry, material);
       mesh2 = new THREE.Mesh(boxGeometry, material);
       mesh3 = new THREE.Mesh(boxGeometry, material);
       mesh4 = new THREE.Mesh(boxGeometry, material);
-      // meshWireframe = new THREE.LineSegments(wireframe);
 
       scene.add(mesh, mesh2, mesh3, mesh4);
 
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.querySelector(".svelte-1uhnsl8");
-      // .setAttribute("style", "padding: 0;");
       renderer.domElement.setAttribute("style", "width: 100vw; height: 100vh");
       document.querySelector(".scene").appendChild(renderer.domElement);
     }
@@ -123,6 +115,14 @@
       mesh4.position.y = Math.cos(time * 0.6) * 1.1;
       mesh4.position.z = Math.cos(time * 0.9) * -1.1;
 
+
+      let cubeScale = 0.5 - y / 2000;
+
+      mesh.scale.set(cubeScale, cubeScale, cubeScale);
+      mesh2.scale.set(cubeScale, cubeScale, cubeScale);
+      mesh3.scale.set(cubeScale, cubeScale, cubeScale);
+      mesh4.scale.set(cubeScale, cubeScale, cubeScale);
+
       renderer.render(scene, camera);
     }
   }
@@ -138,12 +138,6 @@
     activeProject = activeProject + 1;
 
     activeProject > length ? (activeProject = 0) : false;
-  }
-
-  // navbar
-  let y = 0;
-  $: if (y >= 500) {
-    document.getElementById("burger-nav").style.color = "585bd9";
   }
 </script>
 
