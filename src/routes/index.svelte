@@ -61,7 +61,7 @@
 
       scene = new THREE.Scene();
 
-      boxGeometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+      boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
       material = new THREE.MeshNormalMaterial();
       material.opacity = 0.5;
       mesh = new THREE.Mesh(boxGeometry, material);
@@ -116,7 +116,7 @@
       mesh4.position.z = Math.cos(time * 0.9) * -1.1;
 
 
-      let cubeScale = 0.5 - y / 2000;
+      let cubeScale = 0.5 - y / 1500;
 
       mesh.scale.set(cubeScale, cubeScale, cubeScale);
       mesh2.scale.set(cubeScale, cubeScale, cubeScale);
