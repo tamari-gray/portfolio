@@ -210,7 +210,7 @@
     <li>
       <a
         class={segment === 'resume' ? 'selected' : ''}
-        href="https://drive.google.com/file/d/1vOPgsS8N7pr3jS-mL8S5EEcj7nrhijQA/view?usp=sharing"
+        href="https://drive.google.com/file/d/1Y1ymhF-pP317_AxlDax674kRrwntzSrP/view?usp=sharing"
         target="_blank">
         resume
       </a>
