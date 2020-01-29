@@ -12,6 +12,7 @@
   export let posts;
 
   import * as animateScroll from "svelte-scrollto";
+  import { fade } from "svelte/transition";
 
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
   import MdEmail from "svelte-icons/md/MdEmail.svelte";
@@ -26,6 +27,9 @@
 
   // scroll
   let y = 0;
+
+  //transition
+  let transition = true;
 
   function initThreeJs() {
     var camera, scene, renderer;
@@ -115,7 +119,6 @@
       mesh4.position.y = Math.cos(time * 0.6) * 1.1;
       mesh4.position.z = Math.cos(time * 0.9) * -1.1;
 
-
       let cubeScale = 0.5 - y / 1500;
 
       mesh.scale.set(cubeScale, cubeScale, cubeScale);
@@ -139,6 +142,13 @@
 
     activeProject > length ? (activeProject = 0) : false;
   }
+
+  $: activeProjectContent = function() {
+    transition = true;
+    setTimeout(() => {
+      transition = false;
+    }, 10);
+  };
 </script>
 
 <style>
@@ -307,148 +317,163 @@
     </div>
     <!-- projects section -->
     <div id="projects-section" class="column col-12 full-height">
-      <div class="projects columns">
-        <div class=" projects-nav column col-12">
-          <div class="columns">
-            <div class="column col-12 col-mx-auto ">
-              <h1
-                class="outline-black"
-                style=" text-align:center; font-weight:700; font-size:3em;
-                color:white ">
-                My work
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content-component column col-10 col-mx-auto">
-        <div class="columns">
-          <div
-            class="column col-12 col-mx-auto"
-            style="margin-top:5vh; margin-bottom:5vh">
+      {#if transition}
+        <div class="projects columns">
+          <div class=" projects-nav column col-12">
             <div class="columns">
-              <div class=" projects-title column col-6 col-xs-12 col-mx-auto">
-                <h4
+              <div class="column col-12 col-mx-auto ">
+                <h1
                   class="outline-black"
-                  style="text-align:center; font-size:1.8em; font-weight:500">
-                  {activeProjectContent.title}
-                </h4>
-              </div>
-              <div class="column col-6 col-xs-12" style=" text-align:center;">
-                <button class="btn btn-primary" on:click={handleProjectToggle}>
-                  next project
-                  <i class="icon icon-forward icon-small" />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="column col-xs-12 col-6 col-mx-auto ">
-            <div class="columns">
-              <img
-                class=" column col-12 col-mx-auto"
-                src={'/' + activeProjectContent.img}
-                alt="" />
-              <div
-                style="display: flex; justify-content: center; margin-top: 2vh;"
-                class="column col-12 col-mx-auto">
-                <a href={activeProjectContent.codeLink} target="_blank">
-                  <button class="btn btn-primary">View code</button>
-                </a>
-                <a href={activeProjectContent.liveLink} target="_blank">
-                  <button class="btn btn-link">live version</button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="column col-xs-12 col-6 col-mx-auto project-block">
-            <div class="accordion accordian-tam">
-              <input
-                type="checkbox"
-                id="accordion-0"
-                name="accordion-checkbox"
-                hidden />
-              <label class="accordion-header accordian-title" for="accordion-0">
-                <i class="icon icon-arrow-right mr-1" />
-                Description
-              </label>
-              <div class="accordion-body accordian-content">
-                {activeProjectContent.description}
-              </div>
-            </div>
-            <div class="accordion accordian-tam">
-              <input
-                type="checkbox"
-                id="accordion-1"
-                name="accordion-checkbox"
-                hidden />
-              <label class="accordion-header accordian-title" for="accordion-1">
-                <i class="icon icon-arrow-right mr-1" />
-                My role
-              </label>
-              <div class="accordion-body accordian-content">
-                <!-- Accordions content -->
-                {activeProjectContent.myRole}
-              </div>
-            </div>
-            <div class="accordion accordian-tam">
-              <input
-                type="checkbox"
-                id="accordion-2"
-                name="accordion-checkbox"
-                hidden />
-              <label class="accordion-header accordian-title" for="accordion-2">
-                <i class="icon icon-arrow-right mr-1" />
-                Technologies used
-              </label>
-              <div class="accordion-body accordian-content">
-                <!-- <ul> -->
-                {#each activeProjectContent.techUsed as tech}
-                  <span class="chip chipette" style="text-decoration: none">
-                    {tech}
-                  </span>
-                {/each}
-                <!-- </ul> -->
-              </div>
-            </div>
-            <div class="accordion accordian-tam">
-              <input
-                type="checkbox"
-                id="accordion-3"
-                name="accordion-checkbox"
-                hidden />
-              <label class="accordion-header accordian-title" for="accordion-3">
-                <i class="icon icon-arrow-right mr-1" />
-                Key learnings
-              </label>
-              <div class="accordion-body accordian-content">
-                <ul>
-                  {#each activeProjectContent.learnings as learning}
-                    <li>{learning}</li>
-                  {/each}
-                </ul>
-              </div>
-            </div>
-            <div class="accordion accordian-tam">
-              <input
-                type="checkbox"
-                id="accordion-4"
-                name="accordion-checkbox"
-                hidden />
-              <label class="accordion-header accordian-title" for="accordion-4">
-                <i class="icon icon-arrow-right mr-1" />
-                Notable features
-              </label>
-              <div class="accordion-body">
-                <ul>
-                  {#each activeProjectContent.features as feature}
-                    <li>{feature}</li>
-                  {/each}
-                </ul>
+                  style=" text-align:center; font-weight:700; font-size:3em;
+                  color:white ">
+                  My work
+                </h1>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div class="content-component column col-10 col-mx-auto">
+          <div class="columns">
+            <div
+              class="column col-12 col-mx-auto"
+              style="margin-top:5vh; margin-bottom:5vh">
+              <div class="columns">
+                <div class=" projects-title column col-6 col-xs-12 col-mx-auto">
+                  <h4
+                    class="outline-black"
+                    style="text-align:center; font-size:1.8em; font-weight:500">
+                    {activeProjectContent.title}
+                  </h4>
+                </div>
+                <div class="column col-6 col-xs-12" style=" text-align:center;">
+                  <button
+                    class="btn btn-primary"
+                    on:click={handleProjectToggle}>
+                    next project
+                    <i class="icon icon-forward icon-small" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="column col-xs-12 col-6 col-mx-auto ">
+              <div class="columns">
+                <img
+                  class=" column col-12 col-mx-auto"
+                  src={'/' + activeProjectContent.img}
+                  alt="" />
+                <div
+                  style="display: flex; justify-content: center; margin-top:
+                  2vh;"
+                  class="column col-12 col-mx-auto">
+                  <a href={activeProjectContent.codeLink} target="_blank">
+                    <button class="btn btn-primary">View code</button>
+                  </a>
+                  <a href={activeProjectContent.liveLink} target="_blank">
+                    <button class="btn btn-link">live version</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="column col-xs-12 col-6 col-mx-auto project-block">
+              <div class="accordion accordian-tam">
+                <input
+                  type="checkbox"
+                  id="accordion-0"
+                  name="accordion-checkbox"
+                  hidden />
+                <label
+                  class="accordion-header accordian-title"
+                  for="accordion-0">
+                  <i class="icon icon-arrow-right mr-1" />
+                  Description
+                </label>
+                <div class="accordion-body accordian-content">
+                  {activeProjectContent.description}
+                </div>
+              </div>
+              <div class="accordion accordian-tam">
+                <input
+                  type="checkbox"
+                  id="accordion-1"
+                  name="accordion-checkbox"
+                  hidden />
+                <label
+                  class="accordion-header accordian-title"
+                  for="accordion-1">
+                  <i class="icon icon-arrow-right mr-1" />
+                  My role
+                </label>
+                <div class="accordion-body accordian-content">
+                  <!-- Accordions content -->
+                  {activeProjectContent.myRole}
+                </div>
+              </div>
+              <div class="accordion accordian-tam">
+                <input
+                  type="checkbox"
+                  id="accordion-2"
+                  name="accordion-checkbox"
+                  hidden />
+                <label
+                  class="accordion-header accordian-title"
+                  for="accordion-2">
+                  <i class="icon icon-arrow-right mr-1" />
+                  Technologies used
+                </label>
+                <div class="accordion-body accordian-content">
+                  <!-- <ul> -->
+                  {#each activeProjectContent.techUsed as tech}
+                    <span class="chip chipette" style="text-decoration: none">
+                      {tech}
+                    </span>
+                  {/each}
+                  <!-- </ul> -->
+                </div>
+              </div>
+              <div class="accordion accordian-tam">
+                <input
+                  type="checkbox"
+                  id="accordion-3"
+                  name="accordion-checkbox"
+                  hidden />
+                <label
+                  class="accordion-header accordian-title"
+                  for="accordion-3">
+                  <i class="icon icon-arrow-right mr-1" />
+                  Key learnings
+                </label>
+                <div class="accordion-body accordian-content">
+                  <ul>
+                    {#each activeProjectContent.learnings as learning}
+                      <li>{learning}</li>
+                    {/each}
+                  </ul>
+                </div>
+              </div>
+              <div class="accordion accordian-tam">
+                <input
+                  type="checkbox"
+                  id="accordion-4"
+                  name="accordion-checkbox"
+                  hidden />
+                <label
+                  class="accordion-header accordian-title"
+                  for="accordion-4">
+                  <i class="icon icon-arrow-right mr-1" />
+                  Notable features
+                </label>
+                <div class="accordion-body">
+                  <ul>
+                    {#each activeProjectContent.features as feature}
+                      <li>{feature}</li>
+                    {/each}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {/if}
     </div>
     <!-- about section -->
     <div id="about-section" class="column col-12 about" style="">
