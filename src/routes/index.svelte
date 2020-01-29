@@ -142,13 +142,6 @@
 
     activeProject > length ? (activeProject = 0) : false;
   }
-
-  $: activeProjectContent = function() {
-    transition = true;
-    setTimeout(() => {
-      transition = false;
-    }, 10);
-  };
 </script>
 
 <style>
@@ -255,6 +248,18 @@
     .project-block {
       margin-top: 5vh;
     }
+
+    .footer {
+      padding-bottom: 1.5em;
+    }
+
+    .footer-buttons {
+      text-align: center;
+    }
+  }
+
+  .footer-buttons {
+    text-align: left;
   }
 
   #about-section {
@@ -510,21 +515,25 @@
     <!-- footer -->
     <div class="column col-12 col-mx-auto footer">
       <div class="columns" style="margin-top: 8vh">
-        <div class="column col-6">
+        <div class="column col-xs-12 col-6">
           <h4 class="outline" style="margin:none">Tamari gray</h4>
           <p>full stack software developer</p>
         </div>
-        <div class="column col-2" style="text-align: left">
-          <a href="mailto:tamarigray97@gmail.com" target="_blank">
-            <button class="btn btn-primary ">Get in touch</button>
-          </a>
-        </div>
-        <div class="column col-2" style="text-align: left">
-          <a
-            href="https://drive.google.com/file/d/1vOPgsS8N7pr3jS-mL8S5EEcj7nrhijQA/view?usp=sharing"
-            target="_blank">
-            <button class="btn">View resume</button>
-          </a>
+        <div class="column col-xs-12 col-4 ">
+          <div class="columns">
+            <div class="column col-6 col-xs-4 col-mx-auto footer-buttons">
+              <a href="mailto:tamarigray97@gmail.com" target="_blank">
+                <button class="btn btn-primary ">Get in touch</button>
+              </a>
+            </div>
+            <div class="column col-6 col-xs-4 col-mx-auto footer-buttons">
+              <a
+                href="https://drive.google.com/file/d/1vOPgsS8N7pr3jS-mL8S5EEcj7nrhijQA/view?usp=sharing"
+                target="_blank">
+                <button class="btn">View resume</button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
