@@ -144,6 +144,8 @@
     display: flex;
     justify-content: center;
   }
+
+  
 </style>
 
 <div class="overlay" class:show={showOverlay === true}>
@@ -154,24 +156,36 @@
   <div class="overlay-content">
 
     <h1>Tamari gray</h1>
-    <a href="." on:click={() => handleScrollToFromOverlay('projects-section')}>
+    <a style="font-size:1.3em" href="." on:click={() => handleScrollToFromOverlay('projects-section')}>
       My work
     </a>
-    <a href="." on:click={() => handleScrollToFromOverlay('about-section')}>
+    <a style="font-size:1.3em" href="." on:click={() => handleScrollToFromOverlay('about-section')}>
       About me
     </a>
-    <a href="mailto:tamarigray97@gmail.com">Contact me</a>
-    <a href=".">My resume</a>
+    <a style="font-size:1.3em" href="mailto:tamarigray97@gmail.com" target="_blank">Contact me</a>
+    <a
+      style="font-size:1.3em"
+      href="https://drive.google.com/file/d/1Y1ymhF-pP317_AxlDax674kRrwntzSrP/view?usp=sharing"
+      target="_blank">
+      My resume
+    </a>
     <div class="overlay-icons">
-      <a class="icon-navbar" href="https://github.com/tamari-gray">
-        <DiGithubBadge />
-      </a>
-      <a class="icon-navbar" href="https://github.com/tamari-gray">
+      <a
+        class="icon-navbar"
+        href="https://github.com/tamari-gray"
+        target="_blank">
         <DiGithubBadge />
       </a>
       <a
         class="icon-navbar"
-        href="https://www.linkedin.com/in/tamari-gray-44128618a/">
+        href="mailto:tamarigray97@gmail.com"
+        target="_blank">
+        <FaEnvelope />
+      </a>
+      <a
+        class="icon-navbar"
+        href="https://www.linkedin.com/in/tamari-gray-44128618a/"
+        target="_blank">
         <FaLinkedin />
       </a>
     </div>
