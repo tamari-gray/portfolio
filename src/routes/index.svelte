@@ -136,20 +136,18 @@
   $: activeProjectContent = posts[activeProject];
 
   function handleProjectToggle() {
-    //timer test
+    //transition
     showProjects = false;
     setTimeout(() => {
       showProjects = true;
     }, 250);
 
-    //fade out
 
     // change content
     const length = posts.length - 1;
     activeProject = activeProject + 1;
     activeProject > length ? (activeProject = 0) : false;
 
-    //fade in
   }
 </script>
 
