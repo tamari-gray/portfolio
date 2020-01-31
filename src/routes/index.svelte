@@ -29,7 +29,7 @@
   let y = 0;
 
   //transition
-  let transition = true;
+  let showProjects = true;
 
   function initThreeJs() {
     var camera, scene, renderer;
@@ -136,11 +136,20 @@
   $: activeProjectContent = posts[activeProject];
 
   function handleProjectToggle() {
+    //timer test
+    showProjects = false;
+    setTimeout(() => {
+      showProjects = true;
+    }, 250);
+
+    //fade out
+
+    // change content
     const length = posts.length - 1;
-
     activeProject = activeProject + 1;
-
     activeProject > length ? (activeProject = 0) : false;
+
+    //fade in
   }
 </script>
 
@@ -322,23 +331,23 @@
     </div>
     <!-- projects section -->
     <div id="projects-section" class="column col-12 full-height">
-      {#if transition}
-        <div class="projects columns">
-          <div class=" projects-nav column col-12">
-            <div class="columns">
-              <div class="column col-12 col-mx-auto ">
-                <h1
-                  class="outline-black"
-                  style=" text-align:center; font-weight:700; font-size:3em;
-                  color:white ">
-                  My work
-                </h1>
-              </div>
+      <div class="projects columns">
+        <div class=" projects-nav column col-12">
+          <div class="columns">
+            <div class="column col-12 col-mx-auto ">
+              <h1
+                class="outline-black"
+                style=" text-align:center; font-weight:700; font-size:3em;
+                color:white ">
+                My work
+              </h1>
             </div>
           </div>
         </div>
-        <div class="content-component column col-10 col-mx-auto">
-          <div class="columns">
+      </div>
+      <div class="content-component column col-10 col-mx-auto">
+        {#if showProjects}
+          <div transition:fade="{{duration:250}}" class="columns">
             <div
               class="column col-12 col-mx-auto"
               style="margin-top:5vh; margin-bottom:5vh">
@@ -477,8 +486,8 @@
               </div>
             </div>
           </div>
-        </div>
-      {/if}
+        {/if}
+      </div>
     </div>
     <!-- about section -->
     <div id="about-section" class="column col-12 about" style="">
@@ -502,8 +511,7 @@
             build creative products with the latest tech stacks. I hope that
             with the skills I have gathered from these endeavours, I can learn
             from and
-            <span class="special outline">provide</span>
-            real
+            <span class="special outline">provide real</span>
             <span class="special outline">value</span>
             <span class="special outline">to</span>
             <span class="special outline">you</span>
