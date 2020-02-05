@@ -79,10 +79,14 @@
     content: "";
     width: calc(100% - 1em);
     height: 2px;
-    background-color: #4b48d6;
+    background-color:  #9b15f1;
     display: block;
     bottom: -1px;
   } */
+
+  a:visited {
+    color:  #9b15f1 !important;
+  }
 
   a {
     text-decoration: none;
@@ -91,11 +95,11 @@
     text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000, 1px 0 0 #000,
       1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000;
     font-size: 1em;
-    color: #4b48d6;
+    color:  #9b15f1;
   }
 
   .nav-hover:hover {
-    border-bottom: #4b48d6;
+    border-bottom:  #9b15f1;
     padding-bottom: 3px;
   }
 
@@ -156,13 +160,24 @@
   <div class="overlay-content">
 
     <h1>Tamari gray</h1>
-    <a style="font-size:1.3em" href="." on:click={() => handleScrollToFromOverlay('projects-section')}>
+    <a
+      style="font-size:1.3em"
+      href="."
+      on:click={() => handleScrollToFromOverlay('projects-section')}>
       My work
     </a>
-    <a style="font-size:1.3em" href="." on:click={() => handleScrollToFromOverlay('about-section')}>
+    <a
+      style="font-size:1.3em"
+      href="."
+      on:click={() => handleScrollToFromOverlay('about-section')}>
       About me
     </a>
-    <a style="font-size:1.3em" href="mailto:tamarigray97@gmail.com" target="_blank">Contact me</a>
+    <a
+      style="font-size:1.3em"
+      href="mailto:tamarigray97@gmail.com"
+      target="_blank">
+      Contact me
+    </a>
     <a
       style="font-size:1.3em"
       href="https://drive.google.com/file/d/1Y1ymhF-pP317_AxlDax674kRrwntzSrP/view?usp=sharing"

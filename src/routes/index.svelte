@@ -142,12 +142,10 @@
       showProjects = true;
     }, 250);
 
-
     // change content
     const length = posts.length - 1;
     activeProject = activeProject + 1;
     activeProject > length ? (activeProject = 0) : false;
-
   }
 </script>
 
@@ -205,7 +203,7 @@
 
   .content-component {
     background: #000000f0;
-    border: 0.15rem solid #585bd9;
+    border: 0.15rem solid #9b15f1;
     border-radius: 15px;
     color: white;
     min-height: 65vh;
@@ -213,7 +211,7 @@
 
   .footer {
     background: #000000f0;
-    border-top: 0.15rem solid #585bd9;
+    border-top: 0.15rem solid #9b15f1;
     color: white;
     min-height: 20vh;
     position: relative;
@@ -234,7 +232,7 @@
   }
 
   .accordian-title:hover {
-    color: #585bd9;
+    color: #9b15f1;
     cursor: pointer;
   }
 
@@ -276,12 +274,12 @@
   }
 
   .chipette {
-    background-color: #585bd9;
+    background-color: #9b15f1;
   }
   .outline {
-    text-shadow: -0.3px -0.3px 0 #585bd9, 0 -0.3px 0 #585bd9,
-      0.3px -0.3px 0 #585bd9, 0.3px 0 0 #585bd9, 0.3px 0.3px 0 #585bd9,
-      0 0.3px 0 #585bd9, -0.3px 0.3px 0 #585bd9, -0.3px 0 0 #585bd9;
+    text-shadow: -0.3px -0.3px 0 #9b15f1, 0 -0.3px 0 #9b15f1,
+      0.3px -0.3px 0 #9b15f1, 0.3px 0 0 #9b15f1, 0.3px 0.3px 0 #9b15f1,
+      0 0.3px 0 #9b15f1, -0.3px 0.3px 0 #9b15f1, -0.3px 0 0 #9b15f1;
   }
   .outline-black {
     text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000, 1px 0 0 #000,
@@ -291,6 +289,68 @@
   .special {
     text-decoration: none;
     font-weight: 700;
+  }
+
+  .btn-primary-custom {
+    background: #9b15f1;
+    border-color: #9b15f1;
+    color: #fff;
+  }
+
+  .btn-custom {
+    background: #fff;
+
+    border: 0.05rem solid #9b15f1;
+
+    border-radius: 0.1rem;
+
+    color: #9b15f1;
+
+    appearance: none;
+    background: #fff;
+    border: 0.05rem solid #9b15f1;
+    border-radius: 0.1rem;
+    color: #9b15f1;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8rem;
+    height: 1.8rem;
+    line-height: 1.2rem;
+    outline: none;
+    padding: 0.25rem 0.4rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .btn-custom:hover,
+  .btn-custom:focus,
+  .btn-custom:active {
+    background: #fff;
+  }
+
+  .btn-link-custom:focus,
+  .btn-link-custom:hover,
+  .btn-link-custom:active {
+    color: #9822e3 !important;
+    background: transparent !important;
+    border-color: transparent !important;
+
+  }
+  .btn-link-custom {
+    background: transparent;
+    border-color: transparent;
+    color: #9b15f1;
+  }
+
+  .btn:focus,
+  .btn:hover {
+    background: #9822e3;
+    border-color: #9822e3;
+    text-decoration: none;
   }
 </style>
 
@@ -314,7 +374,7 @@
         </h1>
         <div style="text-align:center">
           <button
-            class="btn btn-primary"
+            class="btn btn-primary-custom"
             on:click={() => animateScroll.scrollTo({
                 element: '#projects-section',
                 duration: 1000
@@ -322,7 +382,7 @@
             View my work
           </button>
           <a href="mailto:tamarigray97@gmail.com" target="_blank">
-            <button class="btn">Contact me</button>
+            <button class=" btn-custom">Contact me</button>
           </a>
         </div>
       </div>
@@ -345,7 +405,7 @@
       </div>
       <div class="content-component column col-10 col-mx-auto">
         {#if showProjects}
-          <div transition:fade="{{duration:250}}" class="columns">
+          <div transition:fade={{ duration: 250 }} class="columns">
             <div
               class="column col-12 col-mx-auto"
               style="margin-top:5vh; margin-bottom:5vh">
@@ -359,7 +419,7 @@
                 </div>
                 <div class="column col-6 col-xs-12" style=" text-align:center;">
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-primary-custom"
                     on:click={handleProjectToggle}>
                     next project
                     <i class="icon icon-forward icon-small" />
@@ -378,10 +438,10 @@
                   2vh;"
                   class="column col-12 col-mx-auto">
                   <a href={activeProjectContent.codeLink} target="_blank">
-                    <button class="btn btn-primary">View code</button>
+                    <button class="btn btn-primary-custom">View code</button>
                   </a>
                   <a href={activeProjectContent.liveLink} target="_blank">
-                    <button class="btn btn-link">live version</button>
+                    <button class="btn btn-link-custom">live version</button>
                   </a>
                 </div>
               </div>
@@ -529,14 +589,14 @@
           <div class="columns">
             <div class="column col-6 col-xs-4 col-mx-auto footer-buttons">
               <a href="mailto:tamarigray97@gmail.com" target="_blank">
-                <button class="btn btn-primary ">Get in touch</button>
+                <button class="btn btn-primary-custom ">Get in touch</button>
               </a>
             </div>
             <div class="column col-6 col-xs-4 col-mx-auto footer-buttons">
               <a
                 href="https://drive.google.com/file/d/1vOPgsS8N7pr3jS-mL8S5EEcj7nrhijQA/view?usp=sharing"
                 target="_blank">
-                <button class="btn">View resume</button>
+                <button class=" btn-custom">View resume</button>
               </a>
             </div>
           </div>
